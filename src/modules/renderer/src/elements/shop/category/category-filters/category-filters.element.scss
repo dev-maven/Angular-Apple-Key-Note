@@ -1,0 +1,122 @@
+:host {
+  display: block;
+  position: sticky;
+  top: 4.5em;
+  width: 159px;
+  height: 100%;
+  padding: 2.18rem 2.18rem 2.18rem;
+
+  .container {
+    transition: all .2s;
+  }
+
+  .filter-container {
+    border-bottom: 1px solid #d6d6d6;
+  }
+
+  .filter-parent {
+    font-size: inherit;
+    font-weight: 500;
+    padding: 10px 5px 10px 0;
+    width: 100%;
+    text-align: left;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    outline: none;
+    cursor: pointer;
+    text-transform: capitalize;
+    background-color: transparent;
+    color: unset;
+
+    span {
+      padding-left: 8px;
+    }
+  }
+
+  .filter-child {
+    font-size: inherit;
+    font-weight: 300;
+    border: none;
+    padding: 4px 0;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    cursor: pointer;
+    text-transform: capitalize;
+    background-color: transparent;
+    margin-bottom: 3px;
+    color: unset;
+    white-space: nowrap;
+
+    span {
+      padding-left: 8px;
+    }
+
+    &--active {
+      background-color: #0000000d;
+      color: #008eff;
+    }
+
+    &:last-of-type {
+      margin-bottom: 15px;
+    }
+  }
+
+  .filter-icon--expanded {
+    position: relative;
+    left: 1px;
+    transform: rotate(45deg) scale(1);
+  }
+
+  .mobile-controls {
+    display: none;
+  }
+
+
+  &.screen-mobile {
+    position: fixed;
+    z-index: 999;
+    display: block;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    width: calc(100vw - 60px);
+    height: calc(100vh - 60px);
+    border: 15px solid #888;
+    padding: 15px;
+
+    .filter-parent {
+      padding: 20px 5px 20px 0;
+    }
+
+    .filter-child {
+      padding: 8px 0;
+
+      &--last {
+        margin-bottom: 30px;
+      }
+    }
+
+    .mobile-controls {
+      display: block;
+    }
+
+    .mobile-control {
+      width: 100%;
+      background-color: #ffffff;
+      font-size: 17px;
+      border: none;
+      padding: 8px 0;
+
+      &--black {
+        background-color: black;
+        border-radius: 5px;
+        color: #ffffff;
+        margin-top: 15px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src:
+    local('Open Sans Regular'),
+    local('Open Sans-Regular'),
+    url('../../../../node_modules/typeface-open-sans/files/open-sans-latin-400.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../../../../node_modules/typeface-open-sans/files/open-sans-latin-400.woff') format('woff'); /* Modern Browsers */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-size: 13px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+select, input, textarea {
+  font-family: 'Roboto', sans-serif;
+}
+
+.icon-16 {
+  width: 16px;
+  height: 16px;
+}

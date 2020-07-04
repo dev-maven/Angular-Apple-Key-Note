@@ -1,0 +1,96 @@
+<!--<pre>{{-->
+<!--  (route.data | async).shop.source.snapshot.pages | json-->
+<!--}}</pre>-->
+<!--=======-->
+<!--&lt;!&ndash; <pre>{{-->
+<!--  (route.data | async).shop | json-->
+<!--}}</pre> &ndash;&gt;-->
+<!--&gt;>>>>>> 133bcd6d9290e649ea951f224c0d0933b4ca5250-->
+
+<!--<div class="pages">-->
+<!--  <div *ngFor="let entry of (route.data | async).shop.source.snapshot.pages | keyvalue">-->
+<!--    <span>-->
+<!--      {{entry.key}}: {{entry.value.name}}-->
+<!--    </span>-->
+<!--    <a (click)="deletePage(entry.value.name)" href>🗑</a>-->
+<!--  </div>-->
+
+<!--  <button (click)="addPage()">Add page</button>-->
+<!--</div>-->
+
+<!--<peb-editor [themeId]="123"></peb-editor>-->
+<peb-editor [theme]="(route.data | async).shop"></peb-editor>
+
+<!--<peb-editor-->
+<!--  (pageChanged)="onPageChanged($event)"-->
+<!--&gt;-->
+<!--  <div *pebEditorToolbar="let state = state;" class="toolbar">-->
+<!--    <form>-->
+<!--      <label>-->
+<!--        <span>Document</span>-->
+<!--        <select name="document">-->
+<!--          <option-->
+<!--            *ngFor="let name of ['basic', 'section']"-->
+<!--            [value]="'basic'"-->
+<!--          >-->
+<!--            {{ name }}-->
+<!--          </option>-->
+<!--        </select>-->
+<!--      </label>-->
+<!--    </form>-->
+
+<!--    <form>-->
+<!--      <label>-->
+<!--        <span>Scale</span>-->
+<!--        <select-->
+<!--          name="scale"-->
+<!--          [ngModel]="state.scale"-->
+<!--          (ngModelChange)="state.scale = $event"-->
+<!--        >-->
+<!--          <option-->
+<!--            *ngFor="let scale of availableScales"-->
+<!--            [value]="scale"-->
+<!--          >-->
+<!--            {{ scale * 100 }}%-->
+<!--          </option>-->
+<!--        </select>-->
+<!--      </label>-->
+<!--      <label>-->
+<!--        <span>Screen</span>-->
+<!--        <select-->
+<!--          name="screen"-->
+<!--          [ngModel]="state.screen"-->
+<!--          (ngModelChange)="state.screen = $event"-->
+<!--        >-->
+<!--          <option-->
+<!--            *ngFor="let screen of availableScreens"-->
+<!--            [value]="screen"-->
+<!--          >-->
+<!--            {{ screen }}-->
+<!--          </option>-->
+<!--        </select>-->
+<!--      </label>-->
+<!--      <label>-->
+<!--        <span>Locale</span>-->
+<!--        <select-->
+<!--          name="locale"-->
+<!--          [ngModel]="state.locale"-->
+<!--          (ngModelChange)="state.locale = $event"-->
+<!--        >-->
+<!--          <option-->
+<!--            *ngFor="let locale of availableLocales"-->
+<!--            [value]="locale"-->
+<!--          >-->
+<!--            {{ locale }}-->
+<!--          </option>-->
+<!--        </select>-->
+<!--      </label>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--  &lt;!&ndash;<div *pebEditorToolbar class="toolbar">&ndash;&gt;-->
+<!--  &lt;!&ndash;  Second toolbar&ndash;&gt;-->
+<!--  &lt;!&ndash;</div>&ndash;&gt;-->
+<!--  <div *pebEditorSidebar="let state = state" class="sidebar">-->
+<!--    <pre>{{ state | json }}</pre>-->
+<!--  </div>-->
+<!--</peb-editor>-->

@@ -1,0 +1,8 @@
+<div class="number-input">
+  <div class="number-input__wrapper">
+    <input type="number" [formControl]="control"><span>{{ unit }}</span>
+  </div>
+  <button class="number-input__btn up" (click)="increment()"></button>
+  <button class="number-input__btn down" (click)="decrement()"></button>
+</div>
+<div class="label" *ngIf="label">{{ label }}</div>

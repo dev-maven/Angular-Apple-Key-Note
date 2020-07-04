@@ -1,0 +1,9 @@
+<input
+  [(ngModel)]="name"
+  (keydown.enter)="name.length && close(name)"
+  placeholder="Shop name"
+/>
+<div class="controls">
+  <button [disabled]="!name.length" (click)="close(name)">Create</button>
+  <button (click)="close()">Close</button>
+</div>

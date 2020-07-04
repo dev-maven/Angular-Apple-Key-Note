@@ -1,0 +1,349 @@
+<peb-editor-sidebar-tabs>
+  <peb-editor-sidebar-tab title="Style">
+    <form [formGroup]="styleForm">
+      <div class="my-tab">
+        <div class="inputs-group">
+          <div class="row">
+            <div class="inputs-group__control">
+              <span>
+                <peb-editor-line-1></peb-editor-line-1>
+              </span>         
+            </div>
+            <div class="inputs-group__control">
+              <span>
+                <peb-editor-line-2></peb-editor-line-2>
+              </span>         
+            </div>
+            <div class="inputs-group__control">
+              <span>
+                <peb-editor-line-3></peb-editor-line-3>
+              </span>         
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="inputs-group__control rec-space">
+              <span>
+                <peb-editor-line-4></peb-editor-line-4>
+              </span>         
+            </div>
+            <div class="inputs-group__control rec-space">
+              <span>
+                <peb-editor-line-5></peb-editor-line-5>
+              </span>         
+            </div>
+            <div class="inputs-group__control rec-space">
+              <span>
+                <peb-editor-line-6></peb-editor-line-6>
+              </span>
+            </div>
+          </div>
+        </div>
+
+
+
+      <div class="inputs-group">
+        <div class="inputs-group__row">
+          <mat-checkbox formControlName="stroke">Stroke</mat-checkbox>
+        </div>
+        <div *ngIf="styleForm.get('stroke').value">
+        <div class="row">
+          <div class="select-wrapper sm-wrapper">
+            <label class="select">
+              <select>
+                <option selected>------------</option>
+                <option>--------------</option>
+              </select>
+            </label>
+          </div>
+          <div class="inputs-group__control">
+            <input [style.background]="color1" formControlName="strokeColor" 
+            [(colorPicker)]="color1"
+            (colorPickerChange)="onStyleColorPickerChange($event, 'strokeColor')"
+            [ngStyle]="{'cursor': 'pointer', 'color': 'transparent' }"
+            />
+          </div>
+          <div class="new-input">
+            <div class="number-input">
+              <div class="input">
+                <input type="number" formControlName="height"><span>pt</span>
+              </div>
+              <button class="arrow up" (click)="increment('height')"></button>
+              <button class="arrow down" (click)="decrement('height')"></button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <span class="endpoints">Endpoints: </span>
+          <div class="select-wrapper sm-wrapper">
+            <label class="select">
+              <select>
+                <option selected>------------</option>
+                <option>--------------</option>
+              </select>
+            </label>
+          </div>
+          <div class="select-wrapper sm-wrapper">
+            <label class="select">
+              <select>
+                <option selected>------------</option>
+                <option>--------------</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </form>
+
+        <form [formGroup]="propertiesForm">
+          <div class="my-tab">
+        <!--Z-index Block-->
+        <div class="inputs-group">
+          <div class="inputs-group__row">
+            <mat-checkbox formControlName="shadow">Shadow</mat-checkbox>
+          </div>
+        <div *ngIf="propertiesForm.get('shadow').value">
+          <label>Blur</label>
+          <div class="row">
+            <mat-slider #mySlider (input)="myInput.value = mySlider.value" formControlName="blur" min="0" max="50">
+            </mat-slider>
+          <div class="new-input">
+            <div class="number-input">
+              <div class="input">
+                <input #myInput (input)="mySlider.value = myInput.value" type="number" formControlName="blur"><span>pt</span>
+              </div>
+              <button class="arrow up" (click)="incrementProperty('blur')"></button>
+              <button class="arrow down" (click)="decrementProperty('blur')"></button>
+            </div>
+          </div>
+          </div>
+
+          <label>Offset</label>
+          <div class="row">
+            <mat-slider #offsetSlider (input)="offsetInput.value = offsetSlider.value" formControlName="offset" min="0" max="50">
+            </mat-slider>
+            <div class="new-input">
+              <div class="number-input">
+                <div class="input">
+                  <input #offsetInput (input)="offsetSlider.value = offsetInput.value" type="number" formControlName="offset"><span>pt</span>
+                </div>
+                <button class="arrow up" (click)="incrementProperty('offset')"></button>
+                <button class="arrow down" (click)="decrementProperty('offset')"></button>
+              </div>
+            </div>
+          </div>
+
+          <label>Opacity</label>
+          <div class="row">
+            <mat-slider #shadowOpacitySlider (input)="shadowOpacityInput.value = shadowOpacitySlider.value" formControlName="shadowOpacity" min="0" max="100">
+            </mat-slider>
+            <div class="new-input">
+              <div class="number-input">
+                <div class="input">
+                  <input #shadowOpacityInput (input)="shadowOpacitySlider.value = shadowOpacityInput.value" type="number" formControlName="shadowOpacity"><span>%</span>
+                </div>
+                <button class="arrow up" (click)="incrementProperty('shadowOpacity')"></button>
+                <button class="arrow down" (click)="decrementProperty('shadowOpacity')"></button>
+              </div>
+            </div>
+          </div>
+          <div class="row rotate-div">
+            <span class="angle">Angle</span>
+            <div class="angle-circle">
+            <peb-editor-sidebar-angle-picker [control]="propertiesForm.get('shadowAngle')"></peb-editor-sidebar-angle-picker>
+            </div>
+            <div class="new-input">
+              <div class="number-input">
+                <div class="input">
+                  <input type="number" formControlName="shadowAngle"><span>&deg;</span>
+                </div>
+                <button class="arrow up" (click)="incrementProperty('shadowAngle')"></button>
+                <button class="arrow down" (click)="decrementProperty('shadowAngle')"></button>
+              </div>
+            </div>      
+            <div class="inputs-group__control stroke-color">
+        <input formControlName = "shadowColor" [style.background]="shadowColor" [cpOutputFormat]="'rgba'"
+        [ngStyle]="{'margin-top': '-9px', 'color': 'transparent', 'margin-left':'10px', 'cursor': 'pointer' }"
+        [(colorPicker)]="shadowColor"
+        (colorPickerChange)="onShadowColorPickerChange($event, 'shadowColor')"/>
+      </div>
+          </div>
+        </div>
+        </div>
+
+          <div class="inputs-group">
+            <div class="inputs-group__row">
+              <mat-checkbox formControlName="reflection">Reflection</mat-checkbox>
+            </div>
+  
+            <div class="row">
+              <mat-slider #reflectionSlider (input)="reflectionInput.value = reflectionSlider.value" formControlName="reflection" min="0" max="100">
+              </mat-slider>
+              <div class="new-input">
+                <div class="number-input">
+                  <div class="input">
+                    <input #reflectionInput (input)="reflectionSlider.value = reflectionInput.value" type="number" formControlName="reflection"><span>%</span>
+                  </div>
+                  <button class="arrow up" (click)="incrementProperty('reflection')"></button>
+                  <button class="arrow down" (click)="decrementProperty('reflection')"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="inputs-group">  
+            <label>Opacity</label>
+            <div class="row">
+              <mat-slider #opacitySlider (input)="opacityInput.value = opacitySlider.value" formControlName="opacity" min="0" max="100">
+              </mat-slider>
+              <div class="new-input">
+                <div class="number-input">
+                  <div class="input">
+                    <input #opacityInput (input)="opacitySlider.value = opacityInput.value" type="number" formControlName="opacity"><span>%</span>
+                  </div>
+                  <button class="arrow up" (click)="incrementProperty('opacity')"></button>
+                  <button class="arrow down" (click)="decrementProperty('opacity')"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </form>
+
+  </peb-editor-sidebar-tab>
+
+
+
+
+  <peb-editor-sidebar-tab title="Arrange">
+    <div class="arrange-tab">
+      <form [formGroup]="propertiesForm">
+        <!--Z-index Block-->
+        <div class="inputs-group">
+          <div class="row">
+            <div class="buttons-group">
+              <button>
+                <peb-editor-arrange-move-back-icon></peb-editor-arrange-move-back-icon>
+              </button>
+              <button>
+                <peb-editor-arrange-move-front-icon></peb-editor-arrange-move-front-icon>
+              </button>
+            </div>
+            <div class="buttons-group">
+              <button>
+                <peb-editor-arrange-move-backward-icon></peb-editor-arrange-move-backward-icon>
+              </button>
+              <button>
+                <peb-editor-arrange-move-forward-icon></peb-editor-arrange-move-forward-icon>
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="select-wrapper sm-wrapper">
+              <label class="select">Align
+                <select formControlName="align">
+                  <option selected>Left</option>
+                  <option>Center</option>
+                  <option>Right</option>
+                  <hr />
+                  <option selected>Top</option>
+                  <option>Middle</option>
+                  <option>Bottom</option>
+                </select>
+              </label>
+            </div>
+            <div class="select-wrapper sm-wrapper">
+              <label class="select">Distribute
+                <select disabled>
+                  <option selected>Double</option>
+                  <option>Single product</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+        </div>
+        <div class="inputs-group">
+          <div class="row">
+            <span class="endpoints">Start: </span>
+            <div class="new-input">
+              <div class="number-input">
+                <div class="input">
+                  <input type="number" formControlName="startX"><span>pt</span>
+                </div>
+                <button class="arrow up" (click)="incrementWidth('startX')"></button>
+                <button class="arrow down" (click)="decrementWidth('startX')"></button>
+              </div>
+              <div class="label">X</div>
+            </div>
+            <div class="new-input">
+              <div class="number-input">
+                <div class="input">
+                  <input type="number" formControlName="startY"><span>pt</span>
+                </div>
+                <button class="arrow up" (click)="incrementPosition('startY')"></button>
+                <button class="arrow down" (click)="decrementPosition('startY')"></button>
+              </div>
+              <div class="label">Y</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <span class="endpoints">End: </span>
+            <div class="new-input">
+              <div class="number-input">
+                <div class="input">
+                  <input type="number" formControlName="endX"><span>pt</span>
+                </div>
+                <button class="arrow up" (click)="incrementWidth('endX')"></button>
+                <button class="arrow down" (click)="decrementWidth('endX')"></button>
+              </div>
+              <div class="label">X</div>
+            </div>
+            <div class="new-input">
+              <div class="number-input">
+                <div class="input">
+                  <input type="number" formControlName="endY"><span>pt</span>
+                </div>
+                <button class="arrow up" (click)="incrementPosition('endY')"></button>
+                <button class="arrow down" (click)="decrementPosition('endY')"></button>
+              </div>
+              <div class="label">Y</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="inputs-group">
+        <div class="row">
+          <span class="angle">Angle</span>
+          <div class="angle-circle">
+          <peb-editor-sidebar-angle-picker [control]="propertiesForm.get('lineAngle')"></peb-editor-sidebar-angle-picker>
+          </div>
+          <div class="new-input">
+            <div class="number-input angle-input">
+              <div class="input">
+                <input type="number" max="360" formControlName="lineAngle"><span>&deg;</span>
+              </div>
+              <button class="arrow up" (click)="incrementDegree('lineAngle')"></button>
+              <button class="arrow down" (click)="decrementDegree('lineAngle')"></button>
+            </div>
+          </div>
+          </div>      
+        </div>
+        <div class="inputs-group">
+          <div class="row">
+            <button class="group-btn">Lock</button>
+            <button class="group-btn">Unlock</button>
+          </div>
+          <div class="row">
+            <button class="group-btn">Group</button>
+            <button class="group-btn">Ungroup</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </peb-editor-sidebar-tab>
+</peb-editor-sidebar-tabs>

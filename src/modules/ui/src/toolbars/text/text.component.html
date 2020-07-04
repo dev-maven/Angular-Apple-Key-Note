@@ -1,0 +1,197 @@
+<div class="form">
+  <label>
+    <button color="muted-dark" class="select-button" mat-raised-button [class.button-settings-toggle]="true"
+      [class.mat-button-xxs]="true" [class.mat-button-menu]="true" [class.mat-button-small-padding]="true"
+      [matMenuTriggerFor]="linksMenu" pe-qa-text-editor-toolbar="links">
+      <span [innerHtml]="(linkLabel$ | async) || 'Select a link'"></span>
+      <svg class="icon icon-16">
+        <use xlink:href="#icon-arrow-down-small-16"></use>
+      </svg>
+    </button>
+    <mat-menu #linksMenu="matMenu" class="mat-menu-dark-muted mat-menu-editor-sm mat-menu-editor mat-menu-fieldset">
+      <div class="form-table" (click)="$event.stopPropagation()">
+        <input type="text" class="external-link" [ngModel]="externalLink$ | async"
+          (ngModelChange)="onChangeExternalLink($event)" placeholder="External link"
+          pe-qa-text-editor-toolbar="control.href">
+      </div>
+
+      <ng-container *ngFor="let link of links">
+        <button mat-menu-item (click)="onChangeTextLink(link); $event.stopPropagation()"
+          pe-qa-text-editor-toolbar="link-to-option">
+          <span class="link-menu-item-text">{{ link.title }}</span>
+          <svg class="icon icon-12 icon-checkmark" *ngIf="(textEditorState.link$ | async) === link?.id">
+            <use xlink:href="#icon-checkmark-24"></use>
+          </svg>
+        </button>
+      </ng-container>
+    </mat-menu>
+  </label>
+
+  <label>
+    <button color="muted-dark" class="select-button" mat-raised-button [class.button-settings-toggle]="true"
+      [class.mat-button-xxs]="true" [class.mat-button-menu]="true" [class.mat-button-small-padding]="true"
+      [matMenuTriggerFor]="sizesMenu" pe-qa-builder-editor="text-size">
+      <span [innerHtml]="(textEditorState.fontSize$ | async) || 'Select a font size'"></span>
+      <svg class="icon icon-16">
+        <use xlink:href="#icon-arrow-down-small-16"></use>
+      </svg>
+    </button>
+    <mat-menu #sizesMenu="matMenu" class="mat-menu-dark-muted mat-menu-editor-sm mat-menu-editor mat-menu-fieldset">
+      <ng-container *ngFor="let fontSize of fontSizes">
+        <button mat-menu-item (click)="textEditorState.fontSize = fontSize; $event.stopPropagation()"
+          [attr.pe-qa-builder-editor]="fontSize">
+          <span class="link-menu-item-text">{{ fontSize }}</span>
+          <svg class="icon icon-12 icon-checkmark" *ngIf="(textEditorState.fontSize$ | async) === fontSize">
+            <use xlink:href="#icon-checkmark-24"></use>
+          </svg>
+        </button>
+      </ng-container>
+    </mat-menu>
+  </label>
+
+  <label>
+    <button color="muted-dark" class="select-button" mat-raised-button [class.button-settings-toggle]="true"
+      [class.mat-button-xxs]="true" [class.mat-button-menu]="true" [class.mat-button-small-padding]="true"
+      [matMenuTriggerFor]="familyMenu" pe-qa-text-editor-toolbar="family">
+      <span [ngClass]="{'family-menu-item-text': (textEditorState.fontFamily$ | async)}"
+        [innerHtml]="(textEditorState.fontFamily$ | async) || 'Select a font family'"></span>
+      <svg class="icon icon-16">
+        <use xlink:href="#icon-arrow-down-small-16"></use>
+      </svg>
+    </button>
+    <mat-menu #familyMenu="matMenu" class="mat-menu-dark-muted mat-menu-editor-sm mat-menu-editor mat-menu-fieldset">
+      <div class="form-table" (click)="$event.stopPropagation()">
+        <input type="text" class="family-input" [ngModel]="familySearched" (ngModelChange)="onFilterFontFamily($event)"
+          placeholder="Search a font" pe-qa-text-editor-toolbar="control.href">
+      </div>
+
+      <ng-container *ngFor="let fontFamily of (fontFamilies$ | async); let i = index">
+        <span class="famous-fonts" *ngIf="i === 0 && !isSearchingFonts">Popular</span>
+        <span class="divider" *ngIf="i === 6 && !isSearchingFonts"></span>
+        <button mat-menu-item (click)="textEditorState.fontFamily = fontFamily; $event.stopPropagation()">
+          <span class="family-menu-item-text">{{ fontFamily }}</span>
+          <svg class="icon icon-12 icon-checkmark" *ngIf="(textEditorState.fontFamily$ | async) === fontFamily">
+            <use xlink:href="#icon-checkmark-24"></use>
+          </svg>
+        </button>
+      </ng-container>
+    </mat-menu>
+  </label>
+
+  <span class="color-picker" [colorPicker]="textEditorState.color$ | async"
+    [style.background]="textEditorState.color$ | async" cpOutputFormat="hex" cpAlphaChannel="disabled"
+    (colorPickerChange)="onColorPickerChange($event)" (cpToggleChange)="toggleColorPicker($event)"
+    (click)="toggleColorPicker()"></span>
+  <!-- [style.background]="textEditorState.color$ | async"
+    [cpToggle]="toggleColorPicker$ | async" -->
+
+  <span class="seperator"></span>
+
+  <button class="text-editor-action" [class.active]="textEditorState.bold$ | async"
+    (click)="textEditorState.toggleBold()" pe-qa-text-editor-toolbar="bold">
+    <svg id="icon-me-bold-16" viewBox="0 0 10 10" preserveAspectRatio="xMidYMin slice" width="100%">
+      <path class="path1" fill="currentColor" d="M2.078 5.615h1.508l-.734-2.162h-.016l-.758 2.162zM2.2 2h1.313l2.176
+      5.893H4.36L3.92 6.58H1.744l-.456 1.313H0L2.2
+      2zm3.823 2.938c.016-.275.084-.503.204-.685.12-.181.271-.327.456-.437.185-.11.393-.189.623-.236.231-.046.464-.07.697-.07.212
+       0 .427.015.644.046.217.03.416.09.595.177.18.088.326.21.44.367.114.157.171.365.171.624v2.22c0
+       .192.011.376.033.553.022.176.06.308.114.396H8.826a1.699 1.699 0 0 1-.081-.413 1.505 1.505 0 0
+       1-.652.404c-.25.077-.505.116-.766.116-.201 0-.389-.025-.563-.074a1.282 1.282 0 0 1-.456-.231 1.074 1.074 0 0
+       1-.306-.397c-.073-.16-.11-.349-.11-.569 0-.242.043-.442.127-.598.084-.157.193-.282.326-.376.133-.093.285-.164.456-.21a4.82 4.82
+        0 0 1 .518-.112 8.74 8.74 0 0 1 .513-.066c.169-.016.318-.041.448-.074a.777.777 0 0 0
+        .31-.144c.076-.064.111-.156.106-.277a.628.628 0 0 0-.061-.301.453.453 0 0 0-.163-.173.636.636 0 0 0-.236-.083
+        1.91 1.91 0 0 0-.29-.02c-.228 0-.407.049-.538.148-.13.099-.206.264-.228.495H6.023zm2.673.867a.517.517 0 0 1-.183.103
+        1.854 1.854 0 0 1-.237.062 3.58 3.58 0 0 1-.265.041 4.808 4.808 0 0 0-.277.041 2.069 2.069 0 0 0-.256.066.755.755 0 0
+        0-.22.112.528.528 0 0 0-.151.177.577.577 0 0 0-.057.273c0 .104.019.192.057.264a.44.44 0 0 0
+        .155.169c.065.041.14.07.228.086.087.017.176.025.269.025.228 0 .405-.038.53-.115a.768.768 0 0 0 .277-.277.892.892
+        0 0 0 .11-.326c.013-.11.02-.198.02-.264v-.437z"></path>
+    </svg>
+  </button>
+
+  <button class="text-editor-action" [class.active]="textEditorState.italic$ | async"
+    (click)="textEditorState.toggleItalic()" pe-qa-text-editor-toolbar="italic">
+    <svg id="icon-me-italic-16" viewBox="0 0 10 10" preserveAspectRatio="xMidYMin slice" width="100%">
+      <path class="path1" fill="currentColor" d="M3.614 2h.876l1.087 6.015h-.826l-.278-1.811H1.938L.885 8.015H0L3.614 2zM2.3
+      5.53h2.072l-.446-2.822h-.017L2.299 5.53zm4.22-.556a1.52 1.52 0 0 1 .65-1.07c.168-.118.359-.205.572-.261.214-.056.435-.084.666-.084.213
+      0 .415.016.606.05s.36.093.506.177a.97.97 0 0 1 .35.341c.086.143.13.325.13.544 0 .123-.015.257-.046.4-.031.143-.06.274-.089.392L9.587
+      6.65c-.017.09-.04.191-.071.304-.031.112-.047.219-.047.32 0 .1.02.171.06.21.039.04.09.06.15.06a.364.364 0 0 0
+      .115-.022l.113-.038-.11.531a1.453 1.453 0 0 1-.437.093c-.197
+       0-.346-.054-.447-.16-.1-.107-.14-.256-.118-.447l-.017-.017c-.151.203-.34.357-.564.464-.225.106-.522.16-.893.16a2.03
+       2.03 0 0 1-.518-.063c-.16-.042-.3-.113-.417-.211a1.05 1.05 0 0 1-.282-.38 1.37 1.37 0 0
+       1-.106-.568c0-.32.07-.57.207-.75.137-.18.313-.315.526-.408a2.62 2.62 0 0 1 .708-.19c.258-.033.508-.061.75-.084a9.38
+       9.38 0 0 0 .493-.055c.137-.02.25-.052.34-.097a.427.427 0 0 0 .199-.193.782.782 0 0 0 .063-.346.457.457 0 0 0-.084-.286.6.6
+        0 0 0-.211-.173.977.977 0 0 0-.282-.088 1.87 1.87 0 0 0-.7.017 1.146 1.146 0 0 0-.357.139.936.936 0 0 0-.27.244.803.803 0
+         0 0-.143.358H6.52zm.186 1.904c0 .202.08.354.24.455.16.1.341.151.543.151.568 0
+          .975-.19 1.222-.572.118-.163.198-.34.24-.531.042-.191.089-.388.14-.59h-.018a.973.973 0 0
+           1-.383.156c-.154.03-.319.055-.493.072-.174.016-.35.037-.526.063a2.068 2.068 0 0 0-.476.122.879.879
+           0 0 0-.346.24c-.09.104-.137.249-.143.434z"></path>
+    </svg>
+  </button>
+
+  <button class="text-editor-action" [class.active]="textEditorState.underline$ | async"
+    (click)="textEditorState.toggleUnderline()" pe-qa-text-editor-toolbar="underline">
+    <svg id="icon-me-underline-16" viewBox="0 0 10 10" preserveAspectRatio="xMidYMin slice" width="100%">
+      <path class="path1" fill="currentColor" d="M1.76 5.563h2.058L2.806 2.73H2.79L1.76 5.563zM2.364
+      2h.893l2.372 6.071h-.893l-.663-1.828H1.505l-.68 1.828H0L2.364 2zM10 8.054c-.125.074-.298.111-.519.111a.622.622
+       0 0 1-.446-.157c-.11-.105-.166-.277-.166-.515a1.73 1.73 0 0 1-.693.515 2.29 2.29 0 0 1-.855.157 2.29 2.29 0 0
+       1-.565-.068 1.315 1.315 0 0 1-.463-.213 1.02 1.02 0 0 1-.31-.378 1.273 1.273 0 0
+       1-.116-.566c0-.249.043-.453.128-.612.085-.158.197-.287.336-.387.139-.099.297-.174.476-.225a5.72 5.72 0 0
+       1 .548-.128c.199-.04.387-.069.566-.089a3.15 3.15 0 0 0 .472-.085.786.786 0 0 0 .323-.161c.08-.071.119-.175.119-.31a.721.721
+        0 0 0-.09-.383.612.612 0 0 0-.229-.222.934.934 0 0 0-.314-.102 2.376 2.376 0 0
+        0-.345-.025c-.306 0-.561.058-.765.174-.204.116-.315.336-.332.66h-.723c.012-.273.068-.502.17-.69a1.29 1.29
+        0 0 1 .409-.454c.17-.117.364-.2.582-.251.218-.051.452-.077.702-.077.198
+        0 .395.014.59.043.196.028.373.086.532.174.159.088.286.211.383.37.096.159.144.366.144.62v2.263c0
+        .17.01.294.03.374.02.079.087.119.2.119A.716.716 0 0 0 10 7.493v.561zM8.827 5.801a.9.9 0 0 1-.358.149 5.45 5.45 0
+        0 1-.463.076c-.162.02-.325.043-.489.068a1.798 1.798 0 0 0-.442.124.804.804 0 0 0-.319.242c-.082.105-.123.248-.123.43
+        0 .119.024.22.072.301.048.083.11.15.187.2a.785.785 0 0 0 .268.11c.102.023.21.035.323.035.238
+        0 .442-.033.612-.098.17-.065.31-.147.417-.247a.973.973 0 0 0 .238-.323.817.817 0 0 0 .077-.327V5.8z"></path>
+      <path class="path2" fill="currentColor" d="M0 9.426v-1h10v1z"></path>
+    </svg>
+  </button>
+
+  <span class="seperator"></span>
+
+  <button class="text-editor-action" [class.active]="justifyLeft$ | async" pe-qa-text-editor-toolbar="justify-left"
+    (click)="textEditorState.toggleJustifyLeft()">
+    <svg class="icon icon-16" style="transform: rotateY(180deg);">
+      <use xlink:href="#icon-me-justify-right-16"></use>
+    </svg>
+  </button>
+
+  <button class="text-editor-action" [class.active]="justifyCenter$ | async" pe-qa-text-editor-toolbar="justify-center"
+    (click)="textEditorState.toggleJustifyCenter()">
+    <svg class="icon icon-16" style="transform: rotateY(180deg)">
+      <use xlink:href="#icon-me-justify-center-16"></use>
+    </svg>
+  </button>
+
+  <button class="text-editor-action" [class.active]="justifyRight$ | async" pe-qa-text-editor-toolbar="justify-right"
+    (click)="textEditorState.toggleJustifyRight()">
+    <svg class="icon icon-16">
+      <use xlink:href="#icon-me-justify-right-16"></use>
+    </svg>
+  </button>
+
+  <button class="text-editor-action" [class.active]="justifyFull$ | async" pe-qa-text-editor-toolbar="justify-full"
+    (click)="textEditorState.toggleJustifyFull()">
+    <svg class="icon icon-16" style="transform: rotateY(180deg)">
+      <use xlink:href="#icon-me-justify-full-16"></use>
+    </svg>
+  </button>
+
+  <span class="seperator"></span>
+
+  <button class="text-editor-action" [class.active]="unorderedList$ | async" pe-qa-text-editor-toolbar="list-unordered"
+    (click)="textEditorState.toggleUnorderedList()">
+    <svg class="icon icon-16">
+      <use xlink:href="#icon-me-unordered-list-16"></use>
+    </svg>
+  </button>
+
+  <button class="text-editor-action" [class.active]="orderedList$ | async" pe-qa-text-editor-toolbar="list-ordered"
+    (click)="textEditorState.toggleOrderedList()">
+    <svg class="icon icon-16">
+      <use xlink:href="#icon-me-ordered-list-16"></use>
+    </svg>
+  </button>
+
+</div>

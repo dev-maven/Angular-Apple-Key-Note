@@ -1,0 +1,125 @@
+input, select {
+  background: rgb(18, 18, 18, .3);
+  color: rgba(255, 255, 255, .6);
+  border: 1px solid rgba(0, 0, 0, 0);
+  outline: none;
+  font-size: 12px;
+  font-weight: normal;
+  border-radius: (1em/4);
+  height: 1.5em;
+
+  &:focus {
+    border: #2d69af 1px solid;
+  }
+
+  margin-right: 1em;
+}
+
+label {
+  padding: (1em/4) (1em/2);
+}
+
+select {
+  padding: 0 (1em/2);
+}
+
+.external-link,
+.family-input {
+  height: 2em;
+  text-indent: 2px;
+  margin-right: 5px;
+  background: rgba(18,18,18,.3) !important;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+
+  input[name="name"] {
+    width: 8em;
+  }
+
+
+  label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0;
+    padding: 0;
+
+    span {
+      margin-right: (3em/8);
+      width: max-content;
+      color: rgba(255, 255, 255, .45);
+    }
+  }
+}
+
+.text-editor-action {
+  color: rgba(255,255,255,.95);
+  height: 22px;
+  width: 35px;
+  border-radius: 5px;
+  background: 0 0;
+  border: none;
+  outline: 0;
+  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &.active {
+    background-color: #0084ff;
+  }
+}
+
+.color-picker {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background-color: rgba(0, 0, 0); // Default color
+  border-radius: 3px;
+  border-color: rgba(113,133,113,.5);
+  border-width: 1px;
+  cursor: pointer;
+}
+
+.seperator {
+  width: 1px;
+  background-color: rgba(255,255,255,.2);
+  height: 25px;
+  margin: 0 10px;
+}
+
+.select-button {
+  margin-right: 12px;
+  max-width: 120px;
+  overflow: hidden;
+}
+
+.form-table {
+  input {
+    margin-left: 5px;
+    border: none;
+  }
+}
+
+.family-menu-item-text {
+  text-transform: capitalize;
+}
+
+.famous-fonts {
+  font-size: 12px;
+  height: 22px;
+  line-height: 22px;
+  padding: 0 6px;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: inherit;
+  cursor: default;
+}
+
+.divider {
+  display: block;
+  border-bottom: 1px solid rgba(255,255,255,.2);
+  margin: 2px 0;
+}

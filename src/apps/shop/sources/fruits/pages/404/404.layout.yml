@@ -1,0 +1,15 @@
+id: front
+type: document
+children:
+  -
+    id: front-header
+    type: section
+    children: []
+  -
+    id: front-body
+    type: section
+    children: []
+  -
+    id: front-footer
+    type: section
+    children: []

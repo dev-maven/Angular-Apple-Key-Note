@@ -1,0 +1,48 @@
+:host {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: block;
+  -webkit-user-select: text;
+  user-select: text;
+  > div::ng-deep {
+    height: 100%;
+    width: 100%;
+    word-break: break-word;
+    line-height: normal;
+
+    &.active:hover {
+      cursor: text;
+    }
+    p, ul, ol {
+      margin: 0 !important;
+    }
+    li::marker {
+      color: inherit;
+    }
+    a {
+      color: inherit;
+      text-decoration: underline;
+      &:hover, &:active, &:visited {
+        color: inherit;
+      }
+    }
+  }
+  .outline-none {
+    outline: none !important;
+  }
+  .outline {
+    outline: -webkit-focus-ring-color auto 1px;
+    padding: 2px;
+  }
+  .selectionLayer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+html {
+  font-size: 18px;
+}

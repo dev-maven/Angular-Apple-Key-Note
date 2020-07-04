@@ -1,0 +1,19 @@
+<section *ngIf="!classFrontPage" class="toolbar">
+  <a routerLink="" style="font-size: 1.5em; line-height: .66em">⌂</a>
+  <a routerLink="pages" routerLinkActive="active">Editor...</a>
+  <a routerLink="renderer" routerLinkActive="active">Renderer</a>
+  <a routerLink="viewer" routerLinkActive="active">Viewer...</a>
+  <a routerLink="makers"  routerLinkActive="active">
+    Makers...
+    <!--Text maker-->
+    <!--Table maker-->
+  </a>
+  <a routerLink="actions" routerLinkActive="active">Actions</a>
+  <button class="toolbar__settings" (click)="openSettings()">
+    <mat-icon>settings</mat-icon>
+  </button>
+</section>
+
+<section class="content">
+  <router-outlet></router-outlet>
+</section>

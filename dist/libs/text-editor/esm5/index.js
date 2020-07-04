@@ -1,0 +1,9 @@
+/*
+ * Public API Surface of text-editor
+ */
+export * from './components/text-editor.component';
+export * from './services/text-editor-state.service';
+export * from './text-editor.module';
+export * from './text-editor.constants';
+export * from './text-editor.interface';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290Ijoibmc6Ly9AcGUvYnVpbGRlci10ZXh0LWVkaXRvci8iLCJzb3VyY2VzIjpbImluZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztHQUVHO0FBRUgsY0FBYyxvQ0FBb0MsQ0FBQztBQUVuRCxjQUFjLHNDQUFzQyxDQUFDO0FBRXJELGNBQWMsc0JBQXNCLENBQUM7QUFFckMsY0FBYyx5QkFBeUIsQ0FBQztBQUV4QyxjQUFjLHlCQUF5QixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqIFB1YmxpYyBBUEkgU3VyZmFjZSBvZiB0ZXh0LWVkaXRvclxuICovXG5cbmV4cG9ydCAqIGZyb20gJy4vY29tcG9uZW50cy90ZXh0LWVkaXRvci5jb21wb25lbnQnO1xuXG5leHBvcnQgKiBmcm9tICcuL3NlcnZpY2VzL3RleHQtZWRpdG9yLXN0YXRlLnNlcnZpY2UnO1xuXG5leHBvcnQgKiBmcm9tICcuL3RleHQtZWRpdG9yLm1vZHVsZSc7XG5cbmV4cG9ydCAqIGZyb20gJy4vdGV4dC1lZGl0b3IuY29uc3RhbnRzJztcblxuZXhwb3J0ICogZnJvbSAnLi90ZXh0LWVkaXRvci5pbnRlcmZhY2UnO1xuIl19

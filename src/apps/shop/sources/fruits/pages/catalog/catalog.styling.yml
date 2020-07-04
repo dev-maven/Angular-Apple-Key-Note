@@ -1,0 +1,31 @@
+all:
+  catalog-header:
+    background: red
+  catalog-body:
+    background: green
+  catalog-footer:
+    background: blue
+
+desktop:
+  catalog-header:
+    height: 200
+  catalog-body:
+    height: 400
+  catalog-footer:
+    height: 200
+
+tablet:
+  catalog-header:
+    height: 150
+  catalog-body:
+    height: 350
+  catalog-footer:
+    height: 150
+
+mobile:
+  catalog-header:
+    height: 100
+  catalog-body:
+    height: 300
+  catalog-footer:
+    height: 100

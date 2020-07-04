@@ -1,0 +1,42 @@
+<form *ngIf="form" [formGroup]="form">
+
+  <!-- Page name -->
+  <label>
+    <span>Page Name</span>
+    <input
+      name="name"
+      formControlName="name"
+      placeholder="Page Name"
+      type="text"
+      autocomplete="off"
+      pe-qa-builder-editor="page-name"
+    />
+  </label>
+
+  <!-- Is default page -->
+  <label *ngIf="page?.type !== PebPageType.Master">
+    <span>Home page</span>
+    <input formControlName="default" type="checkbox" autocomplete="off" />
+  </label>
+
+  <!-- Variant -->
+  <label class="select-label">
+    <select
+      name="variant"
+      formControlName="variant"
+      pe-qa-builder-editor="page-variant"
+    >
+      <option
+        *ngFor="let variant of pageVariants"
+        [value]="variant"
+        [attr.pe-qa-builder-editor]="'variant-' + variant"
+      >
+        {{capitalize(variant)}}
+      </option>
+    </select>
+    <svg width="24" height="15" viewBox="0 0 24 24" fill="#FFF" fill-opacity="0.6" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="12,4 8,10 16,10" />
+      <polygon points="12,19 8,13 16,13" />
+     </svg>
+  </label>
+</form>

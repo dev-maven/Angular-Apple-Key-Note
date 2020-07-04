@@ -1,0 +1,69 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "skipLibCheck": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      //
+      // local single module development
+      //
+      // "@pe/builder-core": [
+      // "dist/libs/core"
+      // ],
+      // "@pe/builder-ui": [
+      // "dist/libs/ui"
+      // ],
+      // "@pe/builder-renderer": [
+      // "dist/libs/renderer"
+      // ],
+      // "@pe/builder-text-editor": [
+      // "dist/libs/text-editor"
+      // ],
+      // "@pe/builder-text-editor-compat": [
+      // "dist/libs/text-editor-compat"
+      // ],
+      // "@pe/builder-editor": [
+      // "dist/libs/editor"
+      // ]
+
+      //
+      // active changes across entire codebase
+
+       "@pe/builder-core": [
+         "dist/libs/core"
+       ],
+       "@pe/builder-ui": [
+         "src/modules/ui/src"
+       ],
+       "@pe/builder-renderer": [
+         "src/modules/renderer/src"
+       ],
+       "@pe/builder-text-editor": [
+         "src/modules/text-editor/src"
+       ],
+       "@pe/builder-text-editor-compat": [
+         "src/modules/text-editor-compat/src"
+       ],
+       "@pe/builder-editor": [
+         "src/modules/editor/src"
+       ]
+    }
+  }
+}

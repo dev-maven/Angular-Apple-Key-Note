@@ -1,0 +1,22 @@
+{
+  "name": "@pe/builder-renderer",
+  "version": "4.0.0-alpha.0",
+  "peerDependencies": {
+    "@angular/common": "^9.0.3",
+    "@angular/core": "^9.0.3",
+    "tslib": "^1.10.0",
+    "@pe/builder-core": "latest"
+  },
+  "main": "bundles/pe-builder-renderer.umd.js",
+  "module": "fesm5/pe-builder-renderer.js",
+  "es2015": "fesm2015/pe-builder-renderer.js",
+  "esm5": "esm5/pe-builder-renderer.js",
+  "esm2015": "esm2015/pe-builder-renderer.js",
+  "fesm5": "fesm5/pe-builder-renderer.js",
+  "fesm2015": "fesm2015/pe-builder-renderer.js",
+  "typings": "pe-builder-renderer.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by Ivy. This is not allowed.\\nPlease delete and rebuild the package, without compiling with Ivy, before attempting to publish.\\n')\" && exit 1"
+  }
+}

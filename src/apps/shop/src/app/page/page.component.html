@@ -1,0 +1,7 @@
+<peb-renderer
+  [element]="document$ | async"
+  [stylesheet]="styling$ | async"
+  [context]="context$ | async"
+  [options.screen]="screen$ | async"
+  (interacted)="onInteraction($event)"
+></peb-renderer>

@@ -1,0 +1,121 @@
+all:
+  topnav:
+    backgroundColor: rgba(0, 0, 0, 0.8)
+    height: 45
+  topnav-grid:
+    direction: horizontal
+    cells: left:auto space1:1fr center:auto space2:1fr right:auto
+  topnav-logo:
+    slot: left
+    color: white
+    fontSize: 22
+    left: 8
+  topnav-text-wrapper:
+    slot: center
+  topnav-text-front:
+    margin: 14 24
+    color: white
+  topnav-text-catalog:
+    margin: 14 24
+    color: white
+  topnav-text-product-1:
+    margin: 14 24
+    color: white
+  topnav-text-product-2:
+    margin: 14 24
+    color: white
+  topnav-text-about:
+    margin: 14 24
+    color: white
+  topnav-cart:
+    slot: right
+    color: white
+    fontSize: 16
+    right: 8
+
+  header:
+    backgroundColor: black
+    backgroundImage: https://www.apple.com/v/home/d/images/heroes/iphone-11-pro-spring/hero__dvsxv8smkkgi_largetall.jpg
+    backgroundPosition: bottom
+    backgroundRepeat: no-repeat
+    backgroundSize: contain
+    height: 400
+
+  featured:
+  featured-title:
+    fontSize: 40
+    color: '#333'
+    textAlign: center
+    margin: 16
+    fontWeight: bold
+    width: 100%
+  featured-top-grid:
+    direction: horizontal
+    cells: left:1fr right:2fr
+    gridGap: 8
+  featured-top-1:
+    slot: left
+    height: 500
+  featured-top-2:
+    slot: right
+    height: 500
+  featured-bottom-grid:
+    direction: horizontal
+    cells: cell-1:1fr cell-2:1fr cell-3:1fr
+    gridGap: 8
+    margin: 8 0 0 0
+  featured-bottom-1:
+    slot: cell-1
+    height: 400
+  featured-bottom-2:
+    slot: cell-2
+    height: 400
+  featured-bottom-3:
+    slot: cell-3
+    height: 400
+
+  offer:
+    height: 300
+  offer-wrapper:
+    height: 300
+    background: linear-gradient(160deg,#f46a5a 1%,#d757a4 90%)
+
+  footer:
+    background: '#f2f2f2'
+  footer-grid:
+    direction: horizontal
+    cells: 'left:1fr center:1fr right:1fr'
+  footer-column-left:
+    slot: left
+    margin: 8
+  footer-column-center:
+    slot: center
+    margin: 8
+  footer-column-right:
+    slot: right
+    margin: 8
+
+desktop:
+  main:
+    height: 600
+
+
+
+tablet:
+  featured-top-grid:
+    direction: horizontal
+    cells: left:1fr right:1fr
+
+mobile:
+  topnav-logo:
+    slot: center
+  topnav-cart:
+    slot: none
+  topnav-text-wrapper:
+    slot: none
+  featured-top-grid:
+    direction: vertical
+    cells: left:auto right:auto
+  featured-bottom-grid:
+    direction: vertical
+    cells: cell-1:auto cell-2:auto cell-3:auto

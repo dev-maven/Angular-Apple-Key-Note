@@ -1,0 +1,22 @@
+:host {
+  display: inline-block;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+img,
+span {
+  margin: 0;
+}
+
+img {
+  margin-inline-end: 0.5em;
+}
+h1 {
+  font-size: 1em;
+  font-weight: inherit;
+  display: inline-block;
+}

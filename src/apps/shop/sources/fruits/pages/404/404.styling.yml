@@ -1,0 +1,9 @@
+front-header:
+  height: 200
+  background: red
+front-body:
+  height: 400
+  background: green
+front-footer:
+  height: 200
+  background: blue

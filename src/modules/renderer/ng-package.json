@@ -1,0 +1,12 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/libs/renderer",
+  "lib": {
+    "entryFile": "src/index.ts",
+    "umdModuleIds": {
+      "lodash-es": "lodash-es",
+
+      "@pe/builder-core": "@pe/builder-core"
+    }
+  }
+}

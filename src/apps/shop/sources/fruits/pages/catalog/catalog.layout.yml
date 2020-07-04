@@ -1,0 +1,15 @@
+id: catalog
+type: document
+children:
+  -
+    id: catalog-header
+    type: section
+    children: []
+  -
+    id: catalog-body
+    type: section
+    children: []
+  -
+    id: catalog-footer
+    type: section
+    children: []

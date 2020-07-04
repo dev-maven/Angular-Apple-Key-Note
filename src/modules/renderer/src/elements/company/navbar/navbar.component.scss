@@ -1,0 +1,50 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: inherit;
+  &_hamburger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 10px;
+    &__button {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      .line {
+        width: 100%;
+        background-color: black;
+        border-radius: 1em;
+      }
+    }
+  }
+  &_routes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    &__element {
+      text-align: center;
+      color: inherit;
+      margin: 0 16px;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: inherit;
+      width: max-content;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+    .expansion-link {
+      height: 100%;
+      align-items: center;
+      display: flex;
+    }
+  }
+}

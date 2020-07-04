@@ -1,0 +1,49 @@
+<ng-container [ngSwitch]="context.state">
+  <ng-container *ngSwitchCase="PebElementContextState.Ready">
+    <div class="container">
+
+      <div class="mobile-controls">
+        <button
+          class="mobile-control"
+          (click)="onToggleShownFilters()"
+        >
+          <span class="close-icon"></span>
+        </button>
+
+        <button
+          class="mobile-control mobile-control--black"
+          (click)="onToggleShownFilters()"
+        >
+          Done
+        </button>
+      </div>
+
+      <div
+        *ngFor="let parentFilter of context.data.filters"
+        class="filter-container"
+        [style.borderColor]="styles?.borderColor"
+      >
+        <button
+          class="filter-parent"
+        >
+          <span>{{ parentFilter?.name }}</span>
+          <div
+            class="filter-icon"
+            [class.filter-icon--expanded]="parentFilter?.children?.length"
+          >
+            <peb-icon-plus></peb-icon-plus>
+          </div>
+        </button>
+        <button
+          *ngFor="let childFilter of parentFilter?.children"
+          class="filter-child"
+          [class.filter-child--active]="childFilter?.active"
+          [disabled]="childFilter?.disabled"
+          (click)="onToggleFilter(childFilter)"
+        >
+          <span>{{ childFilter?.name }}</span>
+        </button>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,97 @@
+id: front
+type: document
+children:
+  - id: topnav
+    type: section
+    children:
+      - id: topnav-grid
+        type: grid
+        children:
+#          - id: topnav-menu
+#            type: shop-menu
+#            styles:
+#              display:
+#                mobile: true
+#            context: # list of theme pages
+
+          - id: topnav-logo
+            type: business-logo\
+          - id: topnav-text-wrapper
+            type: block
+            children:
+              - id: topnav-text-front
+                type: text
+                link: /
+                text: Front
+              - id: topnav-text-catalog
+                type: text
+                link: /catalog
+                text: Catalog
+              - id: topnav-text-product-1
+                type: text
+                link: /products/apple
+                text: Apple
+              - id: topnav-text-product-2
+                type: text
+                link: /products/pear
+                text: Pear
+              - id: topnav-text-about
+                type: text
+                link: /about
+                text: About
+          - id: topnav-cart
+            type: shop-cart
+  - id: header
+    type: section
+    children: []
+  - id: featured
+    type: section
+    children:
+      - id: featured-title
+        type: text
+        text: Featured Products
+      - id: featured-top-grid
+        type: grid
+        children:
+          - id: featured-top-1
+            type: shop-product-single
+            variant: link
+          - id: featured-top-2
+            type: shop-product-single
+            variant: link
+      - id: featured-bottom-grid
+        type: grid
+        children:
+          - id: featured-bottom-1
+            type: shop-product-single
+            variant: link
+          - id: featured-bottom-2
+            type: shop-product-single
+            variant: link
+          - id: featured-bottom-3
+            type: shop-product-single
+            variant: link
+  - id: offer
+    type: section
+    children:
+      - id: offer-wrapper
+        type: block
+        children:
+          - id: offer-title
+            type: text
+            text: Featured Products
+  - id: footer
+    type: section
+    children:
+      - id: footer-grid
+        type: grid
+        children:
+          - id: footer-column-left
+            type: text
+            text: Foo
+          - id: footer-column-center
+            type: text
+            text: Bar
+          - id: footer-column-right
+            type: text
+            text: Baz

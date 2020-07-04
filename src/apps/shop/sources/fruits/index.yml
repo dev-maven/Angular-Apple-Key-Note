@@ -1,0 +1,111 @@
+id: 'fruits-shop'
+context:
+  topnav-logo:
+    service: company
+    method: getGeneralInfo
+    params: []
+  company.social-accounts:
+    service: company
+    method: getSocialAccounts
+    params: []
+  product.first:
+    service: products
+    method: getSingle
+    params: ['products-01']
+  product.second:
+    service: products
+    method: getSingle
+    params: ['products-02']
+  menu:
+    service: theme
+    method: getPages
+    params:
+      - type: local
+        url: /about
+      - type: local
+        url: /
+      - type: external
+        url: https://google.com
+pages:
+  -
+    url: /
+    name: Front
+    mark: front
+    layout: pages/front/front.layout
+    styling: pages/front/front.styling
+    context:
+      featured-top-1:
+        service: products
+        method: getSingle
+        params: ['products-01']
+      featured-top-2:
+        service: products
+        method: getSingle
+        params: ['products-02']
+      featured-bottom-1:
+        service: products
+        method: getSingle
+        params: ['products-03']
+      featured-bottom-2:
+        service: products
+        method: getSingle
+        params: ['products-04']
+      featured-bottom-3:
+        service: products
+        method: getSingle
+        params: ['products-05']
+  -
+    url: /catalog
+    layout: pages/catalog/catalog.layout
+    styling: pages/catalog/catalog.styling
+    context:
+      catalog.products:
+        service: products
+        method: getListByCategory
+        params: ['top-pick', { limit: 6, offset: 0 }]
+  -
+    url: /products/apple
+    page: product
+    mark: products:products-01
+    layout: pages/product/product.layout
+    styling: pages/product/product.styling
+    context:
+      product-main:
+        service: products
+        method: getSingle
+        params: ['products-01']
+      related-products:
+        service: products
+        method: getListByIds
+        params: ['products-02', 'products-03']
+  -
+    url: /products/pear
+    page: product
+    mark: products:products-02
+    layout: pages/product/product.layout
+    styling: pages/product/product.styling
+    context:
+      product-main:
+        service: products
+        method: getSingle
+        params: ['products-02']
+      related-products:
+        service: products
+        method: getListByIds
+        params: ['products-04', 'products-05']
+  -
+    url: /about
+
+    layout: pages/about/about.layout
+    styling: pages/about/about.styling
+    context: ~
+  -
+    url: /404
+    type: not-found
+    layout: pages/404/404.layout
+    styling: pages/404/404.styling
+    context:
+      featured.products:
+        service: products
+        method: getListByIds
+        params: ['products-01', 'products-02', 'products-03']

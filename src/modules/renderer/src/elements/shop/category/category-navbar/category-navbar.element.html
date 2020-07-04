@@ -1,0 +1,17 @@
+<ng-container [ngSwitch]="context.state">
+  <ng-container *ngSwitchCase="PebElementContextState.Ready">
+    <div class="navbar-button" (click)="onToggleShownFilters()">
+      <div class="navbar-button__icon">
+        <peb-icon-filters></peb-icon-filters>
+      </div>
+      <div class="navbar-button__label">Filter</div>
+    </div>
+    <label class="navbar-button navbar-button--right">
+      <span>Sort by:</span>
+      <select class="navbar-select">
+        <option>Price: Low to High</option>
+        <option>Price: High to Low</option>
+      </select>
+    </label>
+  </ng-container>
+</ng-container>

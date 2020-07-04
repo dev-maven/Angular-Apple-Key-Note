@@ -1,0 +1,30 @@
+import { AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, Injector, OnDestroy } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { SelectionHelper } from '../helpers/selection.helper';
+import { TextEditor } from '../services/text-editor';
+import { StateService } from '../services/text-editor-state.service';
+import * as i0 from "@angular/core";
+export declare class TextEditorComponent implements AfterViewInit, OnDestroy {
+    injector: Injector;
+    private changeDetectorRef;
+    private selectionHelper;
+    set value(value: string);
+    get textAreaElement(): HTMLElement;
+    initialValue$: BehaviorSubject<string>;
+    changes$: Subject<string>;
+    destroy$: Subject<boolean>;
+    editing: boolean;
+    changed: EventEmitter<string>;
+    textArea: ElementRef;
+    textEditor: TextEditor;
+    state: StateService;
+    constructor(injector: Injector, changeDetectorRef: ChangeDetectorRef, selectionHelper: SelectionHelper);
+    ngAfterViewInit(): void;
+    ngOnDestroy(): void;
+    onInput(): void;
+    onBlur(): void;
+    onPaste(event: ClipboardEvent): void;
+    private bindEvents;
+    static ɵfac: i0.ɵɵFactoryDef<TextEditorComponent>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<TextEditorComponent, "peb-text-editor-new", never, { "value": "value"; "editing": "editing"; }, { "changed": "changed"; }, never>;
+}

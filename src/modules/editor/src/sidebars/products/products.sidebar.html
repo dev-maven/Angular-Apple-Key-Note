@@ -1,0 +1,55 @@
+<peb-editor-sidebar-tabs>
+  <peb-editor-sidebar-tab title="Product">
+    <label class="select">
+      Quantity
+      <select>
+        <option selected>Product grid</option>
+        <option>Single product</option>
+      </select>
+    </label>
+
+    <div class="group">
+      <div class="group__label">
+        <span>Products</span>
+        <button class="group__label-button">Add more</button>
+      </div>
+      <div class="group__content">
+        <div class="products">
+          <div class="product">
+            <div class="product__image"></div>
+            <div class="product__info">
+              <div class="product__name">Name</div>
+              <div class="product__variant">White</div>
+            </div>
+            <div class="product__remove">X</div>
+          </div>
+          <div class="product">
+            <div class="product__image"></div>
+            <div class="product__info">
+              <div class="product__name">Name</div>
+              <div class="product__variant">White</div>
+            </div>
+            <div class="product__remove">X</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group__label">Products grid</div>
+      <div class="group__content">
+        <label class="input-number">
+          Products per row
+          <input type="number" [(ngModel)]="columns" (ngModelChange)="changeColumns($event)">
+        </label>
+        <label class="input-number">
+          Rows
+          <input type="number" [(ngModel)]="rows" (ngModelChange)="changeRows($event)">
+        </label>
+      </div>
+    </div>
+
+  </peb-editor-sidebar-tab>
+  <peb-editor-sidebar-tab title="Style">Styles tab content</peb-editor-sidebar-tab>
+  <peb-editor-sidebar-tab title="Arrange">Arrange tab content</peb-editor-sidebar-tab>
+</peb-editor-sidebar-tabs>

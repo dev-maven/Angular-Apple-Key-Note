@@ -1,0 +1,32 @@
+<section class="toolbar">
+  <select
+    [ngModel]="activePageUrl"
+    (ngModelChange)="setPage($event)"
+  >
+    <option
+      *ngFor="let route of theme.routing"
+      [value]="route.url"
+    >
+      /{{route.url}}
+    </option>
+  </select>
+
+  <label>
+    <select disabled>
+      <option>
+        {{activeScreen}}
+      </option>
+    </select>
+  </label>
+</section>
+
+<section #content>
+  <peb-renderer
+    [element]="pageContent"
+    [stylesheet]="{}"
+    [context]="{}"
+    [options.scale]="1"
+    [options.screen]="activeScreen"
+    [options.locale]="'en'"
+  ></peb-renderer>
+</section>

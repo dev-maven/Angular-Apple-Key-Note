@@ -1,0 +1,135 @@
+@import "../../styles/palette";
+@import "../../styles/common";
+
+:host {
+  display: flex;
+  height: 100%;
+}
+
+.sidebar {
+  @extend .sidebar;
+
+  width: 200px;
+  flex-shrink: 0;
+
+}
+
+.content {
+  @extend .content;
+  position: relative;
+
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-editor-sidebar {
+  width: 300px;
+
+  .images-block {
+    h4 {
+      margin: 0 20px;
+      padding: 10px 0;
+    }
+  }
+
+  .tabs-headers {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+
+    button {
+      width: 100%;
+      padding: 5px 10px;
+      font-size: 14px;
+      background-color: #323232;
+      border: 0;
+      color: white;
+
+      &:first-child {
+        border-radius: 5px 0 0 5px;
+      }
+      &:last-child {
+        border-radius: 0 5px 5px 0;
+      }
+
+      &.selected {
+        background-color: #2A5AC1;
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .mat-tab-label {
+    width: 100%;
+    min-width: auto !important;
+    color: white;
+  }
+}
+
+
+.arrange-tab {
+  padding: 0 10px;
+
+  .inputs-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0;
+    border-bottom: 1px solid #525252;
+
+    .select-control {
+      width: 100%;
+
+      select {
+        width: 80%;
+        height: 25px;
+        font-size: 15px;
+        background: inherit;
+        border: 1px #525252 solid;
+        color: white;
+        margin: 0 auto;
+        display: block;
+      }
+    }
+
+    &__title {
+      width: 30%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
+
+    &__controls {
+      display: flex;
+    }
+
+    &__row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__checkbox-control {
+      margin: 10px 0;
+    }
+
+    &__control {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      input {
+        text-align: right;
+        height: 1.5em;
+        width: 5em;
+        border-radius: 5px;
+        color: white;
+        background-color: inherit;
+        border: 1px solid #424242;
+        box-shadow: 1px 1px 1px 1px inset #222222, -1px -1px 1px 1px inset #222222;
+      }
+    }
+  }
+}

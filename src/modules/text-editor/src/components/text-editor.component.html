@@ -1,0 +1,10 @@
+<div
+  #textArea
+  id="text-editor"
+  [innerHtml]="initialValue$ | async | safeHtml"
+  [contentEditable]="editing"
+  (input)="onInput()"
+  (blur)="onBlur()"
+  (paste)="onPaste($event)"
+  data-placeholder="Text"
+></div>

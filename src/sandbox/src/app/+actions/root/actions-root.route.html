@@ -1,0 +1,78 @@
+<section class="sidebar">
+  <div class="sidebar__section">
+    <span class="sidebar__section__title">Actions ({{ (actions$ | async).length }})</span>
+
+    <span
+      *ngFor="let action of (actions$ | async); index as i"
+      class="sidebar__section__link"
+      [ngClass]="{
+        'sidebar__section__link--active': i <= (lastActionIndex$ | async)
+      }"
+      (click)="lastActionIndex$.next(i)"
+    >
+      {{ i + 1 }}: {{ action.id }}
+    </span>
+  </div>
+</section>
+
+<main class="content">
+  <ng-container *ngIf="mode === 'preview' && (activePage$ | async)">
+    <peb-renderer
+      [element]="(activePage$ | async).layout"
+      [stylesheet]="
+        merge(
+          (activePage$ | async).stylesheets.all,
+          (activePage$ | async).stylesheets.desktop
+        )
+      "
+      [context]="{}"
+    >
+    </peb-renderer>
+  </ng-container>
+
+  <pre *ngIf="mode === 'source' && !(activePage$ | async)">{{
+    (result$ | async).data | json
+  }}</pre>
+  <pre *ngIf="mode === 'source' && (activePage$ | async)">{{
+    result$ | async | json
+  }}</pre>
+</main>
+
+<section class="sidebar">
+  <div class="sidebar__section sidebar__section--controls button-group button-group--horizontal">
+    <button
+      class="button"
+      (click)="mode = 'preview'"
+      [ngClass]="{
+        'button--active': mode === 'preview'
+      }"
+    >
+      Preview
+    </button>
+    <button
+      class="button button--active"
+      (click)="mode = 'source'"
+      [ngClass]="{
+        'button--active': mode === 'source'
+      }"
+    >
+      Source
+    </button>
+  </div>
+  <div
+    *ngIf="mode"
+    class="sidebar__section"
+  >
+    <span class="sidebar__section__title">Pages</span>
+    <span
+      *ngFor="let page of (result$ | async).pages"
+      class="sidebar__section__link"
+      [ngClass]="{
+        'sidebar__section__link--active': (selectedPageId$ | async) === page.id
+      }"
+      (click)="selectedPageId$.next(page.id)"
+    >
+      {{ page.id }}
+    </span>
+  </div>
+</section>

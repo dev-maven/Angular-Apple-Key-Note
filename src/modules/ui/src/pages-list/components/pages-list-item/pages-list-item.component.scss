@@ -1,0 +1,59 @@
+.page-button {
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0 0 0 15px;
+  cursor: pointer;
+  border-radius: 7px;
+  margin: 5px 0 0;
+  background-color: #6c6c69;
+  user-select: none;
+
+  &:hover,
+  &--active {
+    background-color: rgba(255, 255, 255, 0.45);
+  }
+
+  &--active {
+    cursor: default;
+  }
+
+  &__label {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    font-size: 14px;
+    padding-left: 5px;
+  }
+
+  &__menu {
+    margin-left: auto;
+  }
+}
+
+.page-button-menu {
+  background: #606060;
+  color: #fff;
+  margin: -10px 0;
+  padding: 10px 0;
+  overflow: hidden;
+
+  &__item {
+    color: #ffffff;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.45);
+    }
+  }
+}
+
+::ng-deep .page-panel {
+  overflow-y: hidden;
+  background: #606060;
+  border-radius: 7px;
+}

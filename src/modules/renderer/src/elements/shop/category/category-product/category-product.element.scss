@@ -1,0 +1,41 @@
+:host {
+  height: 500px;
+  border-bottom: 1px solid #d6d6d6;
+  border-right: 1px solid #d6d6d6;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  .screen-mobile {
+
+    .image {
+      height: 175px;
+    }
+
+  }
+
+  .title,
+  .price {
+    font-weight: 300;
+    width: 100%;
+    text-align: center;
+  }
+
+  .price {
+    padding-top: 10px;
+  }
+
+  .image {
+    height: 60%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .image,
+  .info {
+    width: 90%;
+  }
+}

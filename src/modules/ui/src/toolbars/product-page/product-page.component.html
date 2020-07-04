@@ -1,0 +1,60 @@
+<form novalidate 
+  class="form-table form-table-horizontal no-padding"
+  (keydown)="onFormKey($event)"
+  [formGroup]="form"
+  *ngIf="form"
+>
+  <span class="seperator"></span>
+  <div class="form-style-group" formGroupName="styles">
+    <label>
+      <span class="form-fieldset-horizontal-label" style="margin-left: 10px;">Width</span>
+      <input
+        name="width"
+        formControlName="width"
+        placeholder="px"
+        type="number"
+        autocomplete="off"
+        pe-qa-builder-editor="product-page-width"
+      />
+    </label>
+    <span class="number-controls">
+        <svg class="control-icon icon-16 carret-up" id="icon-arrow-up-small-16" viewBox="0 0 16 16" preserveAspectRatio="xMidYMin slice" width="100%" (click)="increaseWidth()">
+          <path class="path1" fill="currentColor" d="M8,6c0.128,0,0.256,0.049,0.354,0.145l3.5,
+          3.475c0.195,0.193,0.195,0.508,0,0.701s-0.512,0.193-0.707,
+          0L8,7.198 L4.853,10.32c-0.195,0.193-0.512,0.193-0.707,
+          0c-0.195-0.193-0.195-0.508,0-0.701l3.5-3.475C7.744,6.049,7.872,6,8,6L8,6z"></path>
+        </svg>
+        <svg class="control-icon icon-16 carret-down" id="icon-arrow-down-small-16" viewBox="0 0 16 16" preserveAspectRatio="xMidYMin slice" width="100%" (click)="decreaseWidth()">
+          <path class="path1" fill="currentColor" d="M8,10.465c-0.128,0-0.256-0.049-0.354-0.145l-3.5-3.474c-0.195-0.194-0.195-0.508,
+          0-0.702 c0.195-0.193,0.512-0.193,0.707,0L8,9.268l3.146-3.123c0.195-0.193,
+          0.512-0.193,0.707,0c0.195,0.194,0.195,0.508,0,0.702l-3.5,3.474 C8.256,10.416,8.128,10.465,8,10.465L8,10.465z"></path>
+        </svg>
+    </span>
+
+    <label>
+      <span class="form-fieldset-horizontal-label">Height</span>
+      <input
+        name="height"
+        formControlName="height"
+        placeholder="px"
+        type="number"
+        autocomplete="off"
+        pe-qa-builder-editor="product-page-height"
+      />
+    </label>
+    <span class="number-controls">
+        <svg class="control-icon icon-16 carret-up" id="icon-arrow-up-small-16" viewBox="0 0 16 16" preserveAspectRatio="xMidYMin slice" width="100%" (click)="increaseHeight()">
+          <path class="path1" fill="currentColor" d="M8,6c0.128,0,0.256,0.049,0.354,0.145l3.5,
+          3.475c0.195,0.193,0.195,0.508,0,0.701s-0.512,0.193-0.707,
+          0L8,7.198 L4.853,10.32c-0.195,0.193-0.512,0.193-0.707,
+          0c-0.195-0.193-0.195-0.508,0-0.701l3.5-3.475C7.744,6.049,7.872,6,8,6L8,6z"></path>
+        </svg>
+        <svg class="control-icon icon-16 carret-down" id="icon-arrow-down-small-16" viewBox="0 0 16 16" preserveAspectRatio="xMidYMin slice" width="100%" (click)="decreaseHeight()">
+          <path class="path1" fill="currentColor" d="M8,10.465c-0.128,0-0.256-0.049-0.354-0.145l-3.5-3.474c-0.195-0.194-0.195-0.508,
+          0-0.702 c0.195-0.193,0.512-0.193,0.707,0L8,9.268l3.146-3.123c0.195-0.193,
+          0.512-0.193,0.707,0c0.195,0.194,0.195,0.508,0,0.702l-3.5,3.474 C8.256,10.416,8.128,10.465,8,10.465L8,10.465z"></path>
+        </svg>
+    </span>
+  </div>
+  <span class="seperator"></span>
+</form>

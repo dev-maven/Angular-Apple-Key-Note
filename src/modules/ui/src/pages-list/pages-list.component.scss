@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 0 10px;
+  background-color: #474744;
+}
+
+.pages-list {
+  position: relative;
+  flex: 1 0;
+  padding-bottom: 56px;
+  width: 220px;
+}
+
+peb-ui-pages-add-button {
+  flex: 0 0;
+  position: fixed;
+  width: inherit;
+  bottom: 0;
+  background-color: #474744;
+}

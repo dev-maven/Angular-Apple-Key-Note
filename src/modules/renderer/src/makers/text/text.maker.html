@@ -1,0 +1,18 @@
+<div
+  #textArea
+  [innerHtml]="element.data.text"
+  [contentEditable]="editing$ | async"
+  (input)="onInput()"
+  (blur)="onBlur()"
+  (paste)="onPaste($event)"
+  data-placeholder="Text element"
+  class="text-editor"
+  [ngClass]="{'active': (active$ | async)}"
+></div>
+
+<ng-container >
+  <div [ngStyle]="{'visibility': (active$ | async) ? 'visible' : 'hidden'}" class="handle handle-tm" style="display: block;"></div>
+  <div [ngStyle]="{'visibility': (active$ | async) ? 'visible' : 'hidden'}" class="handle handle-mr" style="display: block;"></div>
+  <div [ngStyle]="{'visibility': (active$ | async) ? 'visible' : 'hidden'}" class="handle handle-bm" style="display: block;"></div>
+  <div [ngStyle]="{'visibility': (active$ | async) ? 'visible' : 'hidden'}" class="handle handle-ml" style="display: block;"></div>
+</ng-container>

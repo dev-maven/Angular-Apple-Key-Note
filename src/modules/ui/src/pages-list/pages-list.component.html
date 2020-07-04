@@ -1,0 +1,19 @@
+<div class="pages-list" pe-qa-builder-editor-pages="pages-section">
+  <peb-ui-pages-list-item
+    *ngFor="let page of (pagesLists$ | async)[activeType]"
+    [page]="page"
+    [route]="getRoute(page?.id)"
+    [active]="activePage === page.id"
+    (selectPage)="selectPage.emit($event)"
+    (copyPage)="copyPage.emit($event)"
+    (deletePage)="deletePage.emit($event)"
+  ></peb-ui-pages-list-item>
+
+
+  <peb-ui-pages-add-button
+    [activeType]="activeType"
+    [pages]="(pagesLists$ | async)?.master"
+    (createPage)="createPage.emit($event)"
+  ></peb-ui-pages-add-button>
+
+</div>

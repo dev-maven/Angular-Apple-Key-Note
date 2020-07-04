@@ -1,0 +1,28 @@
+<ng-container *ngIf="pages else skeleton">
+  <div class="pages">
+      <div
+        *ngFor="let page of pages"
+        class="page"
+        (click)="select.emit(page)"
+        (contextmenu)="onContextMenu($event, page)"
+        [ngClass]="{
+          'page--active': page.id === activePageId
+        }"
+      >
+        <div class="page__preview"></div>
+        <div class="page__name">{{page.type}}: {{ page.name }}</div>
+      </div>
+  </div>
+  <button class="add-button" (click)="onCreate()">
+    <peb-editor-plus-icon></peb-editor-plus-icon>
+  </button>
+</ng-container>
+
+<ng-template #skeleton>
+  <div class="pages">
+    <div *ngFor="let i of skeletonPages" class="page page--skeleton">
+      <div class="page__preview"></div>
+      <div class="page__name"></div>
+    </div>
+  </div>
+</ng-template>

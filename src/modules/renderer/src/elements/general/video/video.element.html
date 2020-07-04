@@ -1,0 +1,3 @@
+<video [controls]="videoSettings.controls" [autoplay]="videoSettings.autoplay" [loop]="videoSettings.loop">
+  <source [src]="source" *ngFor="let source of sources">
+</video>

@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  position: relative;
+}
+
+.element-caption {
+  position: absolute;
+  padding: 4px;
+  font-size: 11px;
+  background: #ccc;
+  color: #444;
+  right: 0;
+  top: 0;
+}
+
+.selected {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 2px solid rgba(0,128,255, .5)
+}

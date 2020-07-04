@@ -1,0 +1,120 @@
+<div class="tools-container">
+  <button class="tool">
+    <div class="tool__icon">
+      <peb-editor-tool-view-icon></peb-editor-tool-view-icon>
+    </div>
+    <span class="tool__label">View</span>
+  </button>
+
+ <button class="tool" (click)="openZoom($event)">
+    <span class="tool__value">{{ (editorState.scale$ | async) * 100 }}%</span>
+    <span class="tool__label">Zoom</span>
+ </button>
+
+  <div class="tools-group">
+    <button class="tool">
+      <div class="tool__icon">
+        <peb-editor-tool-back-icon></peb-editor-tool-back-icon>
+      </div>
+      <span class="tool__label">Back</span>
+    </button>
+    <button class="tool">
+      <div class="tool__icon">
+        <peb-editor-tool-forward-icon></peb-editor-tool-forward-icon>
+      </div>
+      <span class="tool__label">Forward</span>
+    </button>
+  </div>
+</div>
+
+<div class="tools-container">
+  <button class="tool" (click)="openProduct($event)">
+    <div class="tool__icon">
+      <peb-editor-tool-product-icon></peb-editor-tool-product-icon>
+    </div>
+    <span class="tool__label">Product</span>
+  </button>
+
+  <button class="tool">
+    <div class="tool__icon">
+      <peb-editor-tool-text-icon></peb-editor-tool-text-icon>
+    </div>
+    <span class="tool__label">Text</span>
+  </button>
+
+  <button class="tool">
+    <div class="tool__icon">
+      <peb-editor-tool-table-icon></peb-editor-tool-table-icon>
+    </div>
+    <span class="tool__label">Table</span>
+  </button>
+
+  <button class="tool" (click)="openObjects($event)">
+    <div class="tool__icon">
+      <peb-editor-tool-objects-icon></peb-editor-tool-objects-icon>
+    </div>
+    <span class="tool__label">Objects</span>
+  </button>
+
+  <button class="tool" (click)="openMedia($event)">
+    <div class="tool__icon">
+      <peb-editor-tool-media-icon></peb-editor-tool-media-icon>
+    </div>
+    <span class="tool__label">Media</span>
+  </button>
+
+  <button class="tool" (click)="openSections($event)">
+    <div class="tool__icon">
+      <peb-editor-tool-sections-icon></peb-editor-tool-sections-icon>
+    </div>
+    <span class="tool__label">Sections</span>
+  </button>
+
+  <button class="tool">
+    <div class="tool__icon">
+      <peb-editor-tool-html-icon></peb-editor-tool-html-icon>
+    </div>
+    <span class="tool__label">HTML</span>
+  </button>
+</div>
+
+<div class="tools-container">
+  <div class="tools-group">
+    <button class="tool" (click)="openScreen($event)">
+      <div class="tool__icon">
+        <ng-container [ngSwitch]="editorState.screen$ | async">
+          <peb-editor-desktop-icon *ngSwitchCase="'desktop'"></peb-editor-desktop-icon>
+          <peb-editor-tablet-icon *ngSwitchCase="'tablet'"></peb-editor-tablet-icon>
+          <peb-editor-mobile-icon *ngSwitchCase="'mobile'"></peb-editor-mobile-icon>
+        </ng-container>
+      </div>
+      <span class="tool__label">Screen</span>
+    </button>
+    <button class="tool" (click)="openSeo($event)">
+      <div class="tool__icon">
+        <peb-editor-tool-seo-icon></peb-editor-tool-seo-icon>
+      </div>
+      <span class="tool__label">Seo</span>
+    </button>
+    <button class="tool">
+      <div class="tool__icon">
+        <peb-editor-tool-preview-icon></peb-editor-tool-preview-icon>
+      </div>
+      <span class="tool__label">Preview</span>
+    </button>
+  </div>
+
+  <div class="tools-group">
+    <button class="tool tool--short">
+      <div class="tool__icon">
+        <peb-editor-tool-publish-icon></peb-editor-tool-publish-icon>
+      </div>
+      <span class="tool__label"></span>
+    </button>
+    <button class="tool tool--wide" (click)="openPublish($event)">
+      <span class="tool__value">Publish</span>
+      <span class="tool__label"></span>
+    </button>
+    <span class="tools-group__label">Publishing</span>
+  </div>
+</div>

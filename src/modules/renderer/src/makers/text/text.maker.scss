@@ -1,0 +1,108 @@
+:host {
+  position: absolute;
+  .handle {
+    box-sizing: border-box;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #88C6FF;
+    border: 1px solid #88C6FF;
+  }
+  .handle-tl {
+    top: -10px;
+    left: -10px;
+    cursor: nw-resize;
+  }
+  .handle-tm {
+    top: -1px;
+    left: 50%;
+    margin-left: -5px;
+    cursor: n-resize;
+  }
+  .handle-tr {
+    top: -10px;
+    right: -10px;
+    cursor: ne-resize;
+  }
+  .handle-ml {
+    top: 50%;
+    margin-top: -3px;
+    left: -1px;
+    cursor: w-resize;
+  }
+  .handle-mr {
+    top: 50%;
+    margin-top: -3px;
+    right: -1px;
+    cursor: e-resize;
+  }
+  .handle-bl {
+    bottom: -10px;
+    left: -10px;
+    cursor: sw-resize;
+  }
+  .handle-bm {
+    bottom: -1px;
+    left: 50%;
+    margin-left: -5px;
+    cursor: s-resize;
+  }
+  .handle-br {
+    bottom: -10px;
+    right: -10px;
+    cursor: se-resize;
+  }
+  @media only screen and (max-width: 768px) {
+    [class*="handle-"]:before {
+      content: '';
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      top: -10px;
+      position: absolute;
+    }
+  }
+}
+
+.text-editor{
+  position: relative;
+  margin: 2px;
+  padding: 5px;
+  height: 100%;
+  z-index: 999;
+  outline: none;
+  display: inline-block;
+  word-break: break-word;
+  color: #000000;
+  cursor: text;
+  line-height: normal;
+  // font-size: 18px;
+  border: 2px solid rgba(255, 0, 0, 0);
+  &.active{
+    border: 2px solid #88C6FF;
+    box-sizing: border-box;
+  }
+
+  &[contenteditable] {
+    font-weight: 350;
+  }
+
+  &[contenteditable=true] {
+    -webkit-user-select: text;
+    user-select: text;
+    cursor: text;
+  }
+
+  &[contenteditable=false] {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &:empty:before {
+    content:attr(data-placeholder);
+    color: gray;
+  }
+
+
+}

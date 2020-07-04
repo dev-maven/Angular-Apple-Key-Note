@@ -1,0 +1,17 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "component-selector": [
+      true,
+      "element",
+      "icon",
+      "peb-element",
+      "kebab-case"
+    ],
+    "component-class-suffix": [
+      true,
+      "Element",
+      "Icon"
+    ]
+  }
+}

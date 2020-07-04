@@ -1,0 +1,46 @@
+<div
+  class="page-button"
+  [class.page-button--active]="active"
+  (click)="!active && selectPage.emit(page?.id)"
+>
+  <peb-ui-pages-list-item-icon [variant]="page?.variant" [default]="route?.default"></peb-ui-pages-list-item-icon>
+
+  <div
+    class="page-button__label"
+    [attr.pe-qa-builder-editor]="getTestingAttribute(page.name)"
+  >
+    {{ page.name }}
+  </div>
+
+  <button
+    class="page-button__menu"
+    mat-icon-button
+    [disableRipple]="true"
+    [matMenuTriggerFor]="menu"
+    (click)="$event.stopPropagation()"
+    [attr.pe-qa-builder-editor-pages]="'page-menu-trigger' + getTestingAttribute(page.type)">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+</div>
+
+<mat-menu #menu="matMenu" [classList]="'page-panel'">
+  <div class="page-button-menu">
+    <button
+      class="page-button-menu__item"
+      mat-menu-item
+      [disableRipple]="true"
+      (click)="copyPage.emit(page?.id)"
+      pe-qa-builder-editor-pages="page-copy">
+      Copy
+    </button>
+    <button
+      class="page-button-menu__item"
+      mat-menu-item
+      [disableRipple]="true"
+      (click)="onDeletePage()"
+      pe-qa-builder-editor-pages="page-delete">
+      Delete
+    </button>
+  </div>
+</mat-menu>

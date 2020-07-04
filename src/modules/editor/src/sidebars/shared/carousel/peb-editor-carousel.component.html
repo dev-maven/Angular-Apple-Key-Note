@@ -1,0 +1,33 @@
+<div class="carousel">
+  <ng-container *ngIf="carouselData.length" >
+    <ngx-hm-carousel [(ngModel)]="currentIndex" [data]="carouselData">
+
+      <section ngx-hm-carousel-container class="carousel__content">
+        <div ngx-hm-carousel-item class="carousel__element" *ngFor="let slideImages of carouselData">
+          <article class="carousel__element__item">
+            <div (click)="onSelect(image)" *ngFor="let image of slideImages" class="image"
+                 [style.background-image]="getBackroundImage(image)">
+            </div>
+          </article>
+        </div>
+        <ng-template #infiniteContainer></ng-template>
+      </section>
+
+      <ng-template #carouselPrev>
+        <div class="click-area">
+          <peb-editor-triangle-left-icon></peb-editor-triangle-left-icon>
+        </div>
+      </ng-template>
+      <ng-template #carouselNext>
+        <div class="click-area">
+          <peb-editor-triangle-right-icon></peb-editor-triangle-right-icon>
+        </div>
+      </ng-template>
+
+      <ng-template #carouselDot let-model>
+        <div class="ball" [class.visible]="model.index === model.currentIndex"></div>
+      </ng-template>
+
+    </ngx-hm-carousel>
+  </ng-container>
+</div>

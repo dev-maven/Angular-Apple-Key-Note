@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.toolbar {
+  display: flex;
+  height: 40px;
+  border-bottom: 1px solid #686765;
+  padding: 0 32px;
+  line-height: 32px;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  background-color: #474744;
+}

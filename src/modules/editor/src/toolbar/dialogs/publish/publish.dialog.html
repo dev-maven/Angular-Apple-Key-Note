@@ -1,0 +1,74 @@
+<div class="theme-data">
+  <div class="upload-logo">
+    <input class="upload-logo__input" type="file" />
+    <peb-editor-add-image-icon class="upload-logo__icon"></peb-editor-add-image-icon>
+    <span class="upload-logo__label">Logo</span>
+  </div>
+  <div class="form">
+    <div class="field">
+      <div class="field__label">Name:</div>
+      <input class="field__input"
+        [(ngModel)]="shopName"
+        (keydown.enter)="shopName?.length && onChangeShopName(versionName)"
+      />
+      <button
+        class="field__button"
+        [disabled]="!shopName?.length"
+        (click)="onChangeShopName(shopName)"
+      >
+        Change
+      </button>
+    </div>
+    <div class="field">
+      <div class="field__label">Version:</div>
+      <input class="field__input"
+        autofocus
+        [(ngModel)]="versionName"
+        [disabled]="isVersionCreating"
+        (keydown.enter)="versionName?.length && onCreateVersion(versionName)"
+      />
+      <button
+        class="field__button"
+        [class.field__button--loading]="isVersionCreating"
+        [disabled]="!versionName?.length"
+        (click)="onCreateVersion(versionName)"
+      >
+        Create
+      </button>
+    </div>
+  </div>
+</div>
+<div class="versions">
+  <div *ngFor="let version of versions$ | async" class="version">
+    <button class="version__actions" [matMenuTriggerFor]="versionMenu">
+      <peb-editor-dots-icon></peb-editor-dots-icon>
+    </button>
+    <span class="version__name">{{ version.name }}</span>
+    <span *ngIf="version.id === (publishedVersionId$ | async)" class="version__published-indicator"></span>
+    <div class="version__right-info">
+      <span class="version__info">{{ version.createdAt | date:'short' }}</span>
+    </div>
+
+    <mat-menu #versionMenu="matMenu">
+      <button mat-menu-item [disableRipple]="true" (click)="onSelectVersion(version.id)">
+        Edit
+      </button>
+      <button
+        mat-menu-item
+        [disabled]="version.id === (publishedVersionId$ | async)"
+        [disableRipple]="true"
+        (click)="onPublishVersion(version.id)"
+      >
+        Publish
+      </button>
+      <button
+        mat-menu-item
+        [disabled]="version.id === (publishedVersionId$ | async)"
+        [disableRipple]="true"
+        (click)="onDeleteVersion(version.id)"
+      >
+        Delete
+      </button>
+    </mat-menu>
+  </div>
+</div>

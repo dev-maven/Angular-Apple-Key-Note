@@ -1,0 +1,48 @@
+<button class="settings" (click)="openSettings()">
+  <mat-icon>settings</mat-icon>
+</button>
+
+<div class="navigation">
+
+  <div style="grid-area: editor">
+    <h2>Shop Editor</h2>
+    <div class="button-group button-group--vertical">
+      <span *ngIf="!(shops$ | async)">
+        Loading...
+      </span>
+      <a
+        *ngFor="let shop of (shops$|async); trackBy: trackShopFn"
+        class="button"
+        [routerLink]="['editor', shop.id]"
+      >
+        {{ shop.name }}
+      </a>
+      <a class="button" routerLink="editor/new">
+        New
+      </a>
+    </div>
+  </div>
+  <a routerLink="renderer">
+    <h2>Renderer</h2>
+  </a>
+  <a routerLink="viewer">
+    <h2>Viewer</h2>
+  </a>
+  <div>
+    <h2>Makers</h2>
+    <div class="button-group button-group--vertical">
+      <a class="button" routerLink="makers/text">
+        Text
+      </a>
+      <a class="button" routerLink="makers/button">
+        Button
+      </a>
+      <a class="button" routerLink="makers/table">
+        Table
+      </a>
+    </div>
+  </div>
+  <a routerLink="actions">
+    <h2>Actions</h2>
+  </a>
+</div>

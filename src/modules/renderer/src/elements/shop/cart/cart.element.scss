@@ -1,0 +1,15 @@
+:host {
+  display: inline-block;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+img {
+  width: 1em;
+  height: 2.5em;
+  margin-inline-end: .5em;
+}

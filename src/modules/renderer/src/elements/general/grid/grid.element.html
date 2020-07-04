@@ -1,0 +1,5 @@
+<!--<span  *ngIf="hovered" class="element-caption">{{element.type}}</span>-->
+
+<div *ngFor="let cell of cells" class="grid-cell">
+  <ng-container [pebRendererChildrenSlot]="cell"></ng-container>
+</div>

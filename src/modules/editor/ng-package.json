@@ -1,0 +1,14 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/libs/editor",
+  "lib": {
+    "entryFile": "src/index.ts",
+
+    "umdModuleIds": {
+      "lodash-es": "lodash-es",
+
+      "@pe/builder-core": "@pe/builder-core",
+      "@pe/builder-renderer": "@pe/builder-renderer"
+    }
+  }
+}

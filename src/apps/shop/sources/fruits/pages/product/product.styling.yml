@@ -1,0 +1,39 @@
+all:
+  topnav:
+    backgroundColor: rgba(0, 0, 0, 0.8)
+    height: 45
+  topnav-grid:
+    direction: horizontal
+    cells: left:auto space1:1fr center:auto space2:1fr right:auto
+  topnav-logo:
+    slot: left
+    color: white
+    fontSize: 22
+    left: 8
+  topnav-text-wrapper:
+    slot: center
+  topnav-text-front:
+    margin: 14 24
+    color: white
+  topnav-text-catalog:
+    margin: 14 24
+    color: white
+  topnav-text-product-1:
+    margin: 14 24
+    color: white
+  topnav-text-product-2:
+    margin: 14 24
+    color: white
+  topnav-text-about:
+    margin: 14 24
+    color: white
+  topnav-cart:
+    slot: right
+    color: white
+    fontSize: 16
+    right: 8
+  product-main:
+    height: 450
+desktop:
+tablet:
+mobile:

@@ -1,0 +1,26 @@
+
+
+.line{
+  position: relative;
+  top: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+// .line:before, .line:after {
+//   content: "";
+//   width: 10px;
+//   height: 10px;
+//   background: #077df7;
+//   border-radius: 5px;
+//   position: absolute;
+//   top: -4px;
+//   margin: 0 -6px;
+//   display: block;
+// }
+
+// .line:after {
+// 	right: 0;
+// }

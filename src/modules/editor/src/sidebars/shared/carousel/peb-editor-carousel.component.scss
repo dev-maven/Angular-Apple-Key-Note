@@ -1,0 +1,53 @@
+.carousel {
+  position: relative;
+
+  &__content {
+    display: flex;
+    padding-bottom: 45px;
+    padding-top: 40px;
+  }
+
+  &__element {
+    display: flex;
+    justify-content: center;
+
+    &__item {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      padding: 0 10px;
+
+      .image {
+        width: 60px;
+        height: 40px;
+        display: block;
+        background-size: cover;
+        background-position: center;
+        background-color: white;
+
+        margin-right: 6px;
+        margin-bottom: 6px;
+
+        &:nth-child(3) {
+          margin-right: 0;
+        }
+
+        &:nth-child(6) {
+          margin-right: 0
+        }
+      }
+    }
+  }
+
+  .ball {
+    width: 5px;
+    height: 5px;
+    background-color: #828282;
+    position: relative;
+    border-radius: 50%;
+
+    &.visible {
+      background-color: #ffffff;
+    }
+  }
+}

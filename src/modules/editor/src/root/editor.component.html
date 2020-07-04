@@ -1,0 +1,54 @@
+<peb-editor-toolbar
+  id="toolbar"
+  [loading]="!(snapshot$ | async)"
+  (scaleChange)="scaleSubject$.next($event)"
+>
+</peb-editor-toolbar>
+
+<section class="container">
+  <peb-editor-pages-sidebar
+    class="sidebar"
+    [pages]="pages$ | async"
+    [activePageId]="store.activePageId$ | async"
+    (select)="onActivatePage($event)"
+    (create)="onCreatePage($event)"
+    (duplicate)="onDuplicatePage($event)"
+    (delete)="onDeletePage($event)"
+  >
+  </peb-editor-pages-sidebar>
+
+  <div id="content">
+    <div *ngIf="!(snapshot$ | async)" class="spinner"></div>
+    <ng-container *ngIf="(snapshot$ | async) as snapshot">
+      <peb-renderer
+        [element]="snapshot.element"
+        [stylesheet]="snapshot.stylesheet"
+        [context]="context$ | async"
+        [options.screen]="state.screen$ | async"
+        [options.scale]="state.scale$ | async"
+        [options.locale]="'en'"
+        [modifiedElement]="modifiedElement$"
+      ></peb-renderer>
+    </ng-container>
+  </div>
+
+  <div class="sidebar sidebar--right" >
+    <ng-container #sidebarSlot></ng-container>
+<!--    <div *ngIf="!state.selectedType">-->
+<!--      page settings-->
+<!--      <br/>-->
+<!--      <br/>-->
+<!--      hovered: {{state.hoveredElement$ | async }}-->
+<!--      <br/>-->
+<!--      selected: {{state.selectedElements$ | async }}-->
+<!--    </div>-->
+<!--    <peb-editor-section-sidebar-->
+<!--      pebSidebarMark-->
+<!--      *ngIf="state.selectedType === PebElementType.Section"-->
+<!--    >-->
+<!--    </peb-editor-section-sidebar>-->
+<!--    <peb-editor-products-sidebar-->
+<!--      *ngIf="state.selectedType === PebElementType.Products"-->
+<!--    ></peb-editor-products-sidebar>-->
+  </div>
+</section>

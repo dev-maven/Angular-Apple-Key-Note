@@ -1,0 +1,45 @@
+<div
+  #wrapper
+  class="navigation"
+  *ngIf="options.screen !== 'mobile'; else hamburger">
+  <div class="navigation_routes"
+       *ngIf="element.data?.routes"
+  >
+    <ng-container *ngFor="let route of element.data.routes">
+      <ng-container
+        [ngTemplateOutlet]="route?.children?.length ? parentLink : simpleLink"
+        [ngTemplateOutletContext]="{route:route}"
+      ></ng-container>
+    </ng-container>
+  </div>
+</div>
+
+
+<ng-template #hamburger>
+  <div class="navigation_hamburger" (click)="openMobileMenu()" #mobileButtonWrapper>
+    <div class="navigation_hamburger__button" #mobileButton>
+      <div class="line top" #mobileButtonLine></div>
+      <div class="line bottom" #mobileButtonLine></div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #simpleLink let-route="route">
+  <a class="navigation_routes__element"
+     (click)="redirectTo(route.route)"
+  >
+    {{route.title}}</a>
+</ng-template>
+
+<ng-template #parentLink let-route="route" let-index="index">
+  <div class="expansion-link" #dropdownLink (click)="showDropdown(dropdownLink, route)">
+    <a class="navigation_routes__element">
+      {{route.title}}
+      <span class="arrow">
+      <svg width="10" height="5" viewBox="-2.5 -5 75 60" preserveAspectRatio="none">
+        <path d="M0,0 l35,50 l35,-50" fill="none" stroke="white" stroke-linecap="round" stroke-width="5"/>
+      </svg>
+    </span>
+    </a>
+  </div>
+</ng-template>

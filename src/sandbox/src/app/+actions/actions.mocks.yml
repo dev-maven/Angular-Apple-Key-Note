@@ -1,0 +1,310 @@
+
+- id: 001-theme-init-empty
+  timestamp: 1001
+  effects:
+    - type: template:init
+      target: templates:front
+      payload:
+        id: front
+        type: document
+        children:
+          - id: front-header
+            type: section
+            children: []
+          - id: front-body
+            type: section
+            children: []
+          - id: front-footer
+            type: section
+            children: []
+    - type: stylesheet:init
+      target: stylesheets:front-all
+      payload:
+        front-header:
+          backgroundColor: '#789'
+        front-body:
+          backgroundColor: '#abc'
+        front-footer:
+          backgroundColor: '#456'
+    - type: stylesheet:init
+      target: stylesheets:front-desktop
+      payload:
+        front-header:
+          height: 150
+        front-body:
+          height: 300
+        front-footer:
+          height: 150
+    - type: stylesheet:init
+      target: stylesheets:front-tablet
+      payload:
+        front-header:
+          height: 125
+        front-body:
+          height: 250
+        front-footer:
+          height: 125
+    - type: stylesheet:init
+      target: stylesheets:front-mobile
+      payload:
+        front-header:
+          height: 125
+        front-body:
+          height: 250
+        front-footer:
+          height: 125
+    - type: context-schema:init
+      target: contexts:front
+      payload: {}
+    - type: page:init
+      target: pages:pages-front
+      payload:
+        id: pages-front
+        data:
+          name: New page
+          url: ~
+          mark: ~
+        layout: front
+        stylesheets:
+          all: front-all
+          desktop: front-desktop
+          tablet: front-tablet
+          mobile: front-mobile
+        context: front
+    - type: context-schema:init
+      target: contexts:SHOP
+      payload: {}
+    - type: shop:init
+      target: shop
+      payload:
+        data:
+          some: 1
+          shop: 2
+          info: 3
+        context: shop
+        pages: [pages-front]
+
+- id: 002-pages-add-catalog
+  timestamp: 1002
+  effects:
+    - type: layout:init
+      target: layouts:catalog
+      payload:
+        id: catalog
+        type: document
+        children:
+          - id: catalog-header
+            type: section
+            children: []
+          - id: catalog-body
+            type: section
+            children: []
+          - id: catalog-footer
+            type: section
+            children: []
+    - type: stylesheet:init
+      target: stylesheets:catalog-all
+      payload:
+        catalog-header:
+          backgroundColor: '#987'
+        catalog-body:
+          backgroundColor: '#cba'
+        catalog-footer:
+          backgroundColor: '#654'
+    - type: stylesheet:init
+      target: stylesheets:catalog-desktop
+      payload:
+        catalog-header:
+          height: 150
+        catalog-body:
+          height: 300
+        catalog-footer:
+          height: 150
+    - type: stylesheet:init
+      target: stylesheets:catalog-tablet
+      payload:
+        catalog-header:
+          height: 125
+        catalog-body:
+          height: 250
+        catalog-footer:
+          height: 125
+    - type: stylesheet:init
+      target: stylesheets:catalog-mobile
+      payload:
+        catalog-header:
+          height: 125
+        catalog-body:
+          height: 250
+        catalog-footer:
+          height: 125
+    - type: context-schema:init
+      target: contexts:catalog
+      payload: {}
+    - type: page:init
+      target: pages:pages-catalog
+      payload:
+        id: catalog
+        data:
+          name: New page
+          url: ~
+          mark: ~
+        layout: catalog
+        stylesheets:
+          all: catalog-all
+          desktop: catalog-desktop
+          tablet: catalog-tablet
+          mobile: catalog-mobile
+        context: catalog
+    - type: shop:update-pages
+      target: shop
+      payload:
+        - pages-front
+        - pages-catalog
+
+- id: 002-pages-add-product-apple
+  timestamp: 1002
+  effects:
+    - type: layout:init
+      target: layouts:catalog
+      payload:
+        id: catalog
+        type: catalog-document
+        children:
+          - id: catalog-header
+            type: section
+            children: []
+          - id: catalog-body
+            type: section
+            children: []
+          - id: catalog-footer
+            type: section
+            children: []
+    - type: stylesheet:init
+      target: stylesheets:catalog-all
+      payload:
+        catalog-header:
+          background: '#789'
+        catalog-body:
+          background: '#abc'
+        catalog-footer:
+          background: '#456'
+    - type: stylesheet:init
+      target: stylesheets:catalog-desktop
+      payload:
+        catalog-header:
+          height: 150
+        catalog-body:
+          height: 300
+        catalog-footer:
+          height: 150
+    - type: stylesheet:init
+      target: stylesheets:catalog-tablet
+      payload:
+        catalog-header:
+          height: 125
+        catalog-body:
+          height: 250
+        catalog-footer:
+          height: 125
+    - type: stylesheet:init
+      target: stylesheets:catalog-mobile
+      payload:
+        catalog-header:
+          height: 125
+        catalog-body:
+          height: 250
+        catalog-footer:
+          height: 125
+    - type: context-schema:init
+      target: contexts:catalog
+      payload: {}
+    - type: page:init
+      target: pages:pages-catalog
+      payload:
+        id: catalog
+        data:
+          name: New page
+          url: ~
+          mark: ~
+        layout: catalog
+        stylesheets:
+          all: catalog-all
+          desktop: catalog-desktop
+          tablet: catalog-tablet
+          mobile: catalog-mobile
+        context: catalog
+    - type: shop:update-pages
+      target: shop
+      payload:
+        - pages-front
+        - pages-catalog
+
+- id: 003-empty
+  timestamp: 1003
+  effects: []
+
+- id: 004-update-theme-data
+  timestamp: 1003
+  effects:
+    - type: shop:update-data
+      target: shop
+      payload: { more: 'data' }
+
+- id: 004-empty
+  timestamp: 1004
+  effects: []
+
+- id: 005-empty
+  timestamp: 1005
+  effects: []
+
+
+# element update
+#- id: ~
+#  timestamp: 1005
+#  effects:
+#    - type: StylesheetUpdate
+#      target: stylesheets:STYLE1_DESKTOP
+#      payload:
+#        page1-top:
+#          height: 50
+#        page1-body:
+#          height: 150
+#
+#- id: ~
+#  type: PageCreate
+#  target: front
+#  payload:
+#    name: New page
+#    url: ~
+#    mark: ~
+#    prototype:
+#      - actionId1
+#      - actionId2
+#      - ..
+#    layout: { id: document, type: document, children: [] }
+#    stylesheet: { all: {}, desktop: {},  tablet: {}, mobile: {} }
+#    context: {}
+#- id: ~
+#  type: PageCreate
+#  target: catalog
+#  payload:
+#    name: New page
+#    url: ~
+#    mark: ~
+#    layout: { id: document, type: document, children: [] }
+#    stylesheet: { all: {}, desktop: {},  tablet: {}, mobile: {} }
+#    context: {}
+# general page info update
+#- id: ~
+#  type: PageUpdate
+#  target: front
+#  payload:
+#    name: Front
+# Creation of new element in page
+#- id: ~
+#  type: PageAppendElement
+#  payload:
+#    layout: what element to append to which parent
+#    stylesheet:

@@ -1,0 +1,11 @@
+<ng-container [ngSwitch]="context.state">
+  <ng-container *ngSwitchCase="PebElementContextState.Loading">Loading...</ng-container>
+  <ng-container *ngSwitchCase="PebElementContextState.Error">Error</ng-container>
+  <ng-container *ngSwitchCase="PebElementContextState.Empty">Empty</ng-container>
+  <ng-container *ngSwitchCase="PebElementContextState.Ready">
+    <div class="wrapper">
+      <img [src]="context.data.logoUrl" [alt]="context.data.name" />
+      <h1>{{ context.data.name }}</h1>
+    </div>
+  </ng-container>
+</ng-container>

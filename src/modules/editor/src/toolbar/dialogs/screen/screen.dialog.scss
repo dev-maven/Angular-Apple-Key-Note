@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  margin: -24px;
+  width: 75px;
+}
+
+.option {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  cursor: pointer;
+  transition: background-color .2s;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+}

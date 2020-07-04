@@ -1,0 +1,115 @@
+-
+  id: products-01
+  name: Tasty Apple
+  categories: ['top-pick']
+  images:
+    - "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MXNK2?wid=532&hei=582&fmt=png-alpha&qlt=80&.v=1583449317975"
+  prices:
+    regular: 12.34
+    sale: ~
+
+-
+  id: products-02
+  name: Juicy Pear
+  categories: ['top-pick', 'sale']
+  images:
+    - "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MXYY2_FV428?wid=1420&hei=930&fmt=png-alpha&qlt=80&.v=1583191232703"
+  prices:
+    regular: 15.43
+    sale: 9.99
+
+-
+  id: products-03
+  name: Avocado
+  categories: []
+  images:
+    - "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MY1M2?wid=532&hei=582&fmt=png-alpha&qlt=80&.v=1583196242760"
+  prices:
+    regular: 23.45
+    sale: ~
+
+-
+  id: products-04
+  name: Rotten Bananas
+  categories: ['sale']
+  images:
+    - "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MXMX2_FV528?wid=532&hei=582&fmt=png-alpha&qlt=80&.v=1583443359663"
+  prices:
+    regular: 8.95
+    sale: 1.99
+
+-
+  id: products-05
+  name: Fleshy Cherries
+  categories: ['top-pick']
+  images:
+    - "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MRQM2_AV2_SPACE_GRAY?wid=532&hei=582&fmt=png-alpha&qlt=80&.v=1583950572501"
+  prices:
+    regular: 13.45
+    sale: ~
+
+-
+  id: products-06
+  name: Coconut
+  categories: ['sale']
+  images:
+    - "images/coconut/1.jpg"
+  prices:
+    regular: 17.55
+    sale: ~
+
+-
+  id: products-07
+  name: Feijoa
+  categories: []
+  images:
+    - "images/feijoa/1.jpg"
+    - "images/feijoa/2.jpg"
+    - "images/feijoa/2.jpg"
+  prices:
+    regular: 35.42
+    sale: ~
+
+-
+  id: products-08
+  name: Grapefruit
+  categories: []
+  images:
+    - "images/grapefruit/1.jpg"
+    - "images/grapefruit/2.jpg"
+  prices:
+    regular: 23.45
+    sale: ~
+
+-
+  id: products-09
+  name: Guava
+  categories: []
+  images:
+    - "images/guava/1.jpg"
+    - "images/guava/2.jpg"
+  prices:
+    regular: 23.45
+    sale: ~
+
+-
+  id: products-10
+  name: Kiwi
+  categories: ['top-pick']
+  images:
+    - "images/kiwi/1.jpg"
+    - "images/kiwi/2.jpg"
+  prices:
+    regular: 23.45
+    sale: ~
+
+-
+  id: products-11
+  name: Lemon
+  categories: ['top-pick', 'sale']
+  images:
+    - "images/lemon/1.jpg"
+    - "images/lemon/2.jpg"
+  prices:
+    regular: 23.45
+    sale: 19.99

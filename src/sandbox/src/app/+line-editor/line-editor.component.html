@@ -1,0 +1,75 @@
+<section class="sidebar">
+</section>
+
+<main class="content">
+  <!-- <peb-renderer
+    id="preview-desktop"
+    [element]="(lineElement$ | async)"
+    [stylesheet]="(lineStyleSheet$ | async)"
+    [context]="{}"
+    [options]="{ screen: 'desktop', scale: 1, locale: 'en' }"
+  ></peb-renderer> -->
+</main>
+
+<section class="sidebar carousel-editor-sidebar">
+  <peb-editor-sidebar-tabs>
+    <peb-editor-sidebar-tab title="Style">
+      <div class="tab-content">
+      </div>
+    </peb-editor-sidebar-tab>
+    <peb-editor-sidebar-tab label="Arrange">
+      <div class="arrange-tab">
+        <form [formGroup]="arrangeForm">
+          <div class="inputs-group" formGroupName="size">
+            <div class="inputs-group__title">
+              <span>Size</span>
+            </div>
+            
+            <div>
+              <div class="inputs-group__row">
+                <div class="inputs-group__control">
+                  <input type="number" formControlName="width">
+                  <label>Width</label>
+                </div>
+                <div class="inputs-group__control">
+                  <input type="number" formControlName="height">
+                  <label>Height</label>
+                </div>
+              </div>
+              <div class="inputs-group__row">
+                <div class="inputs-group__checkbox-control">
+                  <input type="checkbox" formControlName="saveProportions">
+                  <label>Constrain Proportions</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="inputs-group" formGroupName="position">
+            <div class="inputs-group__title">
+              <span>Position</span>
+            </div>
+            <div class="inputs-group__control">
+              <input type="number" formControlName="x">
+              <label>X</label>
+            </div>
+            <div class="inputs-group__control">
+              <input type="number" formControlName="y">
+              <label>Y</label>
+            </div>
+          </div>
+        </form>
+      </div>
+    </peb-editor-sidebar-tab>
+  </peb-editor-sidebar-tabs>
+</section>
+
+
+<!-- <ng-template #slidesTab>
+  <div class="images-block">
+    <peb-slides-list></peb-slides-list>
+  </div>
+</ng-template>
+
+<ng-template #mediaTab>
+  <peb-media-tab></peb-media-tab>
+</ng-template> -->

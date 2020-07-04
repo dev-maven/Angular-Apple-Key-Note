@@ -1,0 +1,103 @@
+@import "../../styles/palette";
+@import "../../styles/inputs";
+
+:host {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $background-highlight;
+  background-image:
+    radial-gradient(closest-side, rgba(255, 255, 255, .5), transparent),
+    linear-gradient(to right, rgba(194, 194, 194, .2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(194, 194, 194, .2) 1px, transparent 1px),
+    linear-gradient(to right, rgba(194, 194, 194, .2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(194, 194, 194, .2) 1px, transparent 1px)
+  ;
+  background-size: 100% 100%, 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+
+}
+
+.navigation {
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: 20em 15em 15em;
+  grid-template-rows: 17.5em 17.5em;
+  grid-template-areas:
+    "editor renderer viewer"
+    "editor makers actions"
+  ;
+
+  & > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    border-radius: 1em;
+    background-color: #171717;
+    color: white;
+    box-shadow: 0 0 .4em rgba(0,0,0,.4);
+    cursor: pointer;
+
+
+    h2 {
+      font-weight: normal;
+    }
+
+    .button-group {
+      @extend .button-group;
+
+      width: 60%;
+    }
+
+    .button {
+      @extend .button;
+
+      text-align: center;
+      text-decoration: none;
+    }
+  }
+
+  & > a {
+    text-decoration: none;
+    transition: box-shadow .2s;
+
+    &:hover {
+      box-shadow: .25em .25em .7em .3em rgba(0,0,0,.4);
+    }
+  }
+}
+
+
+// dev
+pre {
+  position: absolute;
+  top:0;
+  left: 0;
+  background: white;
+  border: 1px solid #888;
+  width: 250px;
+  height: 400px;
+}
+
+.settings {
+  top: 1em;
+  right: 1em;
+  padding: 2em;
+  position: absolute;
+  background: #161616;
+  border-radius: 1em;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: background-color .2s;
+
+  &:hover {
+    color: $text-bright;
+    background-color: $background-light;
+  }
+}

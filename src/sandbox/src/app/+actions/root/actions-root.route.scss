@@ -1,0 +1,71 @@
+@import "../../../styles/palette";
+@import "../../../styles/common";
+@import "../../../styles/inputs";
+
+:host {
+  display: flex;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar {
+  @extend .sidebar;
+  overflow: auto;
+
+  width: 200px;
+  flex-shrink: 0;
+
+  &__section__link {
+    overflow: hidden;
+  }
+
+  &::-webkit-scrollbar {
+    width: .75em;
+    background: #222;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+.content {
+  @extend .content;
+
+  flex-grow: 1;
+  overflow: auto;
+  padding: 24px;
+
+  pre, peb-renderer {
+    border: 1px solid #888;
+    box-shadow: 0 0 .5em $background-dark;
+  }
+
+  pre {
+    padding: 8px;
+    background: white;
+  }
+}
+
+.sidebar__section--controls {
+  display: flex;
+  padding: 1em;
+  justify-content: center;
+
+  @at-root .button {
+    @extend .button;
+  }
+
+  @at-root .button-group {
+    @extend .button-group;
+  }
+}
+

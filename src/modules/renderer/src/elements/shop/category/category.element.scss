@@ -1,0 +1,20 @@
+:host {
+  width: 100%;
+  background-color: #ffffff;
+  height: fit-content;
+  display: block;
+}
+
+.category-content {
+  position: relative;
+  display: flex;
+}
+
+.category-products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-left: auto;
+  width: 100%;
+  transition: all .2s;
+  box-shadow: inset 1px 0px 0px 0px #d6d6d6;
+}

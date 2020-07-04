@@ -1,0 +1,10 @@
+<ng-container [ngSwitch]="context.state">
+  <ng-container *ngSwitchCase="PebElementContextState.Ready">
+    <div class="title">{{ context.data.title }}</div>
+    <div class="image-container">
+      <!-- *ngIf="context.data.image else productPreviewIcon" -->
+      <div #imageRef class="image"></div>
+    <!-- [style.backgroundImage]="'url(' + context.data.image + ')'"> -->
+    </div>
+  </ng-container>
+</ng-container>

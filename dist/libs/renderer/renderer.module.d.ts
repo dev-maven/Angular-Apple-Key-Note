@@ -1,0 +1,44 @@
+import { ModuleWithProviders } from '@angular/core';
+import { PebDocumentElement } from './elements/general/document/document.element';
+import { PebSectionElement } from './elements/general/section/section.element';
+import { PebBlockElement } from './elements/general/block/block.element';
+import { PebTextElement } from './elements/general/text/text.element';
+import { PebLineElement } from './elements/general/line/line.element';
+import * as i0 from "@angular/core";
+import * as i1 from "./root/renderer.component";
+import * as i2 from "./selectors/children-slot.directive";
+import * as i3 from "./elements/icons/product.icon";
+import * as i4 from "./elements/icons/plus.icon";
+import * as i5 from "./elements/icons/filters.icon";
+import * as i6 from "./elements/general/document/document.element";
+import * as i7 from "./elements/general/section/section.element";
+import * as i8 from "./elements/general/block/block.element";
+import * as i9 from "./elements/general/text/text.element";
+import * as i10 from "./elements/general/grid/grid.element";
+import * as i11 from "./elements/general/button/button.element";
+import * as i12 from "./elements/general/image/image.element";
+import * as i13 from "./elements/general/video/video.element";
+import * as i14 from "./elements/general/line/line.element";
+import * as i15 from "./elements/company/logo/logo.element";
+import * as i16 from "./elements/company/navbar/navbar.component";
+import * as i17 from "./elements/shop/cart/cart.element";
+import * as i18 from "./elements/shop/category/category.element";
+import * as i19 from "./elements/shop/category/category-header/category-header.element";
+import * as i20 from "./elements/shop/category/category-navbar/category-navbar.element";
+import * as i21 from "./elements/shop/category/category-filters/category-filters.element";
+import * as i22 from "./elements/shop/category/category-product/category-product.element";
+import * as i23 from "./elements/shop/products/product/product.element";
+import * as i24 from "./elements/shop/products/products.element";
+import * as i25 from "@angular/common";
+export declare const AVAILABLE_ELEMENTS_MAP: {
+    document: typeof PebDocumentElement;
+    section: typeof PebSectionElement;
+    block: typeof PebBlockElement;
+    text: typeof PebTextElement;
+    line: typeof PebLineElement;
+};
+export declare class PebRendererModule {
+    static forRoot(config: any): ModuleWithProviders<PebRendererModule>;
+    static ɵmod: i0.ɵɵNgModuleDefWithMeta<PebRendererModule, [typeof i1.PebRendererComponent, typeof i2.PebRendererChildrenSlotDirective, typeof i3.PebProductIcon, typeof i4.PebPlusIcon, typeof i5.PebFiltersIcon, typeof i6.PebDocumentElement, typeof i7.PebSectionElement, typeof i8.PebBlockElement, typeof i9.PebTextElement, typeof i10.PebGridElement, typeof i11.PebButtonElement, typeof i12.PebImageElement, typeof i13.PebVideoElement, typeof i14.PebLineElement, typeof i15.PebBusinessLogoElement, typeof i16.PebNavbarElement, typeof i17.PebShopCartElement, typeof i18.PebShopCategoryElement, typeof i19.PebShopCategoryHeaderElement, typeof i20.PebShopCategoryNavbarElement, typeof i21.PebShopCategoryFiltersElement, typeof i22.PebShopCategoryProductElement, typeof i23.PebShopProductElement, typeof i24.PebShopProductsElement], [typeof i25.CommonModule], [typeof i1.PebRendererComponent]>;
+    static ɵinj: i0.ɵɵInjectorDef<PebRendererModule>;
+}

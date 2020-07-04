@@ -1,0 +1,63 @@
+<cdk-tree
+  *ngIf="document"
+  [dataSource]="dataSource"
+  [treeControl]="treeControl"
+>
+  <cdk-nested-tree-node *cdkTreeNodeDef="let node; when: hasChildren" class="node">
+    <ng-container *ngIf="isVisible(node)">
+      <div class="details" [class.details--active]="(this.editor.selectedElements$ | async)?.includes(node.id)" (click)="markSelected(node)">
+        <span class="details__caption">
+          <peb-ui-document-tree-item-icon [type]="node.type"></peb-ui-document-tree-item-icon>
+          <span>
+            {{mappedPebElementType[node.type] || 'Document'}}
+          </span>
+        </span>
+
+        <!-- <span class="node-controls">
+          <button
+            class="button node-controls__button"
+            (click)="toggleDetailed(node)"
+          >
+            <span>?</span>
+          </button>
+          <button class="button node-controls__button">
+            <span>+</span>
+          </button>
+        </span> -->
+      </div>
+
+      <div *ngIf="isDetailed(node)" class="children-preview">
+        <pre style="font-size: .5em;">{{ node.data | json }}</pre>
+      </div>
+
+      <div
+        *ngIf="hasChildren(null, node) && !isExpanded(node)"
+        [@openClose]="hasChildren(null, node) && !isExpanded(node) ? 'open' : 'closed'"
+        class="children-preview"
+      >
+
+        <ng-container *ngIf="node.children.length">
+          <button
+            class="button children-preview__button"
+            (click)="expandNode(node)"
+          >
+            <span>+</span>
+          </button>
+          <span>
+            {{ visibleChildren(node) }} children elements
+          </span>
+        </ng-container>
+      </div>
+
+      <div class="children-list" *ngIf="hasChildren(null, node) && isExpanded(node)">
+        <div class="children-list__padding" (click)="collapseNode(node)">
+          <span>-</span>
+        </div>
+
+        <div class="children-list__content">
+          <ng-container cdkTreeNodeOutlet></ng-container>
+        </div>
+      </div>
+    </ng-container>
+  </cdk-nested-tree-node>
+</cdk-tree>

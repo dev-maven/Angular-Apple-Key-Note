@@ -1,0 +1,34 @@
+<ng-container *ngIf="activeType === PageTypes.Replica">
+  <button class="add-page-button" mat-button [disableRipple]="true" [matMenuTriggerFor]="menu" pe-qa-builder-editor="add-page-button-replica">
+    <mat-icon>add</mat-icon>
+  </button>
+</ng-container>
+
+<mat-menu #menu="matMenu">
+  <div class="menu">
+    <div
+      *peFeatureFlag="'create_blank_page'"
+      class="master-page"
+      pe-qa-builder-editor-pages="new-page-blank"
+      (click)="createReplicaPage(null)"
+    >
+      <div class="master-page__preview"></div>
+      <div class="master-page__name">Blank page</div>
+    </div>
+
+    <div *ngFor="let page of pages" class="master-page" [attr.pe-qa-builder-editor]="'new-page-' + getTestingAttribute(page)"
+      (click)="createReplicaPage(page.id)">
+      <div class="master-page__preview"></div>
+      <div class="master-page__name">{{ page.name }}</div>
+    </div>
+  </div>
+</mat-menu>
+
+<ng-container *ngIf="activeType === PageTypes.Master">
+  <button mat-button disableRipple
+    class="add-page-button"
+    (click)="createMasterPage()"
+    pe-qa-builder-editor="add-page-button-master">
+    <mat-icon>add</mat-icon>
+  </button>
+</ng-container>

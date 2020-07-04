@@ -1,0 +1,42 @@
+id: product
+type: document
+children:
+  - id: topnav
+    type: section
+    children:
+      - id: topnav-grid
+        type: grid
+        children:
+          - id: topnav-logo
+            type: business-logo
+          - id: topnav-text-wrapper
+            type: block
+            children:
+              - id: topnav-text-front
+                type: text
+                link: /
+                text: Front
+              - id: topnav-text-catalog
+                type: text
+                link: /catalog
+                text: Catalog
+              - id: topnav-text-product-1
+                type: text
+                link: /products/apple
+                text: Apple
+              - id: topnav-text-product-2
+                type: text
+                link: /products/pear
+                text: Pear
+              - id: topnav-text-about
+                type: text
+                link: /about
+                text: About
+          - id: topnav-cart
+            type: shop-cart
+  - id: product-body
+    type: section
+    children:
+      - id: product-main
+        type: shop-product-single
+        variant: purchase

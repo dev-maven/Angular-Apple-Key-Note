@@ -1,0 +1,11 @@
+{
+  "name": "@pe/builder-renderer",
+  "version": "4.0.0-alpha.0",
+  "peerDependencies": {
+    "@angular/common": "^9.0.3",
+    "@angular/core": "^9.0.3",
+    "tslib": "^1.10.0",
+
+    "@pe/builder-core": "latest"
+  }
+}

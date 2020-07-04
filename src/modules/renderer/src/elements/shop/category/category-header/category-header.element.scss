@@ -1,0 +1,28 @@
+:host {
+  background-color: #00000005;
+  padding: 0 2.180rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  .title {
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+
+  .image-container {
+    display: flex;
+    margin-left: auto;
+    width: 50%;
+    height: calc(100% - 2rem);
+  }
+
+
+  .image {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}

@@ -1,0 +1,81 @@
+$background: #333;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 1000px;
+}
+
+#toolbar {
+  height: 3.85em;
+  background-color: $background;
+  color: #fff;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  height: calc(100% - 3.85em);
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  background-color: $background;
+  overflow: auto;
+  width: 12em;
+  flex-shrink: 0;
+  height: 100%;
+
+  &--right {
+    color: #fff;
+    width: 20em;
+  }
+}
+
+#content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  box-shadow: inset 0 0 .25em $background;
+
+  background-color: white;
+  background-image:
+    linear-gradient(to right, rgba(194, 194, 194, .2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(194, 194, 194, .2) 1px, transparent 1px),
+    linear-gradient(to right, rgba(194, 194, 194, .2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(194, 194, 194, .2) 1px, transparent 1px)
+  ;
+  background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+}
+
+.spinner {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  border-top-color: #222;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+peb-renderer {
+  display: inline-block;
+  margin: 3em;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 4px rgba(64, 64, 64, 0.4);
+  height: max-content;
+}

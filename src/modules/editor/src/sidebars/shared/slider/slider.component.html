@@ -1,0 +1,20 @@
+<div class="slider_wrapper">
+  <div class="slider_container">
+    <input
+      type="range"
+      [min]="min"
+      [max]="max"
+      [value]="control.value"
+      [formControl]="control"
+      (input)="inputSubject$.next($event)"
+      class="slider" id="myRange"
+    />
+    <div class="filled" [style.width.%]="width"></div>
+    <div class="unfilled"></div>
+  </div>
+  <peb-editor-number-input
+    class="number-input"
+    [control]="control"
+    [unit]="unit"
+  ></peb-editor-number-input>
+</div>

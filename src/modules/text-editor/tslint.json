@@ -1,0 +1,12 @@
+{
+  "extends": "@pe/frontend-dev-kit/tslint-lib",
+  "rules": {
+    "component-selector": [
+      true,
+      "pe-",
+      "peb-",
+      "kebab-case"
+    ],
+    "no-floating-promises": false
+  }
+}

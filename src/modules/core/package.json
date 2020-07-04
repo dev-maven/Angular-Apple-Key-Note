@@ -1,0 +1,16 @@
+{
+  "name": "@pe/builder-core",
+  "version": "4.0.0-alpha.0",
+  "description": "",
+  "repository": "http://gitlab.devpayever.com/frontend/builder-editor.git",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "hash.js": "^1.1.7",
+    "uuid": "^3.3.3"
+  },
+  "peerDependencies": {
+    "@angular/common": "^8.2.11",
+    "@angular/core": "^8.2.11",
+    "lodash-es": "^4.17.15"
+  }
+}

@@ -1,0 +1,39 @@
+#text-editor {
+  position: relative;
+  margin: 2px;
+  z-index: 999;
+  outline: none;
+  word-break: break-word;
+  color: #000000;
+  cursor: text;
+  line-height: normal;
+  // font-size: 18px;
+
+  &[contenteditable] {
+    /* usually 300 is used. But Firefox has issue with making text as bold via execCommand
+     if font-weight is 300.
+     Something like this https://bugzilla.mozilla.org/show_bug.cgi?id=948411
+     */
+    font-weight: 350;
+  }
+
+  &[contenteditable=true] {
+    -webkit-user-select: text;
+    user-select: text;
+    cursor: text;
+  }
+
+  &[contenteditable=false] {
+    cursor: default;
+  }
+
+  &:empty:before {
+    content:attr(data-placeholder);
+    color: gray;
+  }
+}
+
+.pe-te-p {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
